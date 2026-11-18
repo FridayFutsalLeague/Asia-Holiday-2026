@@ -34,7 +34,7 @@
 <div class="tabs-shell"><div class="tabs" id="tabs"><button class="tab active" data-page="home" onclick="go('home')">Overview</button></div></div>
 <section id="home" class="page active">
 <div class="home-hero"><div class="kicker">Pham Family Holiday</div><h1>Thailand + Vietnam<br>2026</h1><p>Everything for the trip, organised by destination.</p><div class="hero-pills"><span class="pill">🌏 27 nights</span><span class="pill">👨‍👩‍👧‍👦 Family of 4</span><span class="pill">📍 6 destination stops</span></div></div>
-<div class="wrap"><div class="section-head first"><h2>Quick access</h2><span>Trip essentials</span></div><div class="quick-grid"><button class="quick" onclick="coming('Travel documents')"><i>📄</i>Travel docs</button><button class="quick" onclick="coming('Packing checklist')"><i>✅</i>Packing</button><button class="quick" onclick="coming('Budget')"><i>💰</i>Budget</button><button class="quick" onclick="coming('Bookings')"><i>🎫</i>Bookings</button></div></div>
+<div class="wrap"><div class="section-head first"><h2>Quick access</h2><span>Trip essentials</span></div><div class="quick-grid"><a class="quick" href="https://drive.google.com/drive/folders/1Za3pYvOpL45sA5SicPDkp_EKhZbUSnAR" target="_blank"><i>📄</i>Travel docs</a><button class="quick" onclick="coming('Packing checklist')"><i>✅</i>Packing</button><a class="quick" href="https://drive.google.com/drive/folders/149ORu8gXyJIE6vZHDa_pCSKl8ropHU5v" target="_blank"><i>🛡️</i>Insurance</a><a class="quick" href="https://drive.google.com/drive/folders/1JNrutArkrXBMoKM2jwtr5gIOf4QW1iNv" target="_blank"><i>🎫</i>Bookings</a></div></div>
 </section>
 <div id="pages"></div>
 <nav class="nav"><button onclick="go('home')"><i>🏠</i>Home</button><button onclick="coming('Day-by-day itinerary')"><i>📅</i>Itinerary</button><button onclick="coming('Packing checklist')"><i>✅</i>Checklist</button><button onclick="coming('Travel tools')"><i>☰</i>More</button></nav>
@@ -148,6 +148,24 @@ bkk2:{hotel:"https://admin.hire4event.com/assets/venueimage/pullman-bangkok-hote
 "https://pimg.1px.tw/may1215may/1673449791-2760841587-g.jpg"]}
 };
 
+const driveLinks={
+root:"https://drive.google.com/drive/folders/1Za3pYvOpL45sA5SicPDkp_EKhZbUSnAR",
+hotelsFolder:"https://drive.google.com/drive/folders/1JNrutArkrXBMoKM2jwtr5gIOf4QW1iNv",
+insuranceFolder:"https://drive.google.com/drive/folders/149ORu8gXyJIE6vZHDa_pCSKl8ropHU5v",
+flightDocs:{
+thai:"https://drive.google.com/file/d/16OMS6dO5U27ydydF6-u6nqE5Nw2MqMRl/view",
+vietnam:"https://drive.google.com/file/d/1uvgNnKPi2LngiVAnVFzXUfUoI2xidl6o/view"
+},
+hotelDocs:{
+pattaya:"https://drive.google.com/file/d/1sJYwUpBIi4JkWSY_8cloSt4UWU_st2PI/view",
+hoian:"https://drive.google.com/file/d/1vIcOVxAeKOKd5TsLyjn0kiBjgX1Hl8GB/view",
+danang:"https://drive.google.com/file/d/1nMzFYIIDrhp0r7QlBh5DZO_Sk7gL-MAy/view",
+hcm:"https://drive.google.com/file/d/16p4MmYWxnS6etdsghTq5vuJjEVTG2zmU/view",
+bkk1:"https://drive.google.com/file/d/18JUIBzORaiKYw8qYnnvoTF27PvQHmsPZ/view",
+bkk2:"https://drive.google.com/file/d/1uVFvVnptJYLN1Qzi8Wdx7D6pa80zhlbq/view"
+}
+};
+
 const tabs=document.getElementById('tabs');
 tabs.innerHTML+=Object.entries(d).map(([id,x])=>`<button class="tab" data-page="${id}" onclick="go('${id}')"><span class="mini-flag">${x.f}</span>${x.short}</button>`).join('');
 
@@ -211,7 +229,7 @@ hcm:[{route:'Ho Chi Minh City → Bangkok',flight:'VN605',date:'21 Dec 2026',dep
 bkk1:[],
 bkk2:[{route:'Bangkok → Melbourne',flight:'TG465',date:'29 Dec 2026',dep:'18:20',arr:'07:20',depAirport:'BKK · Suvarnabhumi',arrAirport:'MEL · Terminal 2',arrDate:'30 Dec 2026',checkin:'Aim to be at BKK around 3:20 PM (about 3 hours before departure).',leave:'Leave Pullman Bangkok Hotel G around 1:45 PM.',note:'Nonstop Thai Airways flight · approx. 9h.'}]
 }
-function flightCard(f){return '<div class="flight-card"><div class="flight-top"><div><div class="label">✈️ Flight</div><div class="flight-route">'+f.route+'</div></div><div class="flight-number">'+f.flight+'</div></div><div class="flight-times"><div class="flight-time"><b>'+f.dep+'</b><span>'+f.depAirport+'<br>'+f.date+'</span></div><div class="flight-arrow">→</div><div class="flight-time"><b>'+f.arr+'</b><span>'+f.arrAirport+'<br>'+(f.arrDate||f.date)+'</span></div></div><div class="travel-advice"><div><b>Recommended check-in / airport arrival:</b> '+f.checkin+'</div><div><b>Recommended leave time:</b> '+f.leave+'</div>'+(f.note?'<div><b>Note:</b> '+f.note+'</div>':'')+'</div></div>';}
+function flightCard(f){var doc=f.flight.startsWith('TG')?driveLinks.flightDocs.thai:driveLinks.flightDocs.vietnam;return '<div class="flight-card"><div class="flight-top"><div><div class="label">✈️ Flight</div><div class="flight-route">'+f.route+'</div></div><div class="flight-number">'+f.flight+'</div></div><div class="flight-times"><div class="flight-time"><b>'+f.dep+'</b><span>'+f.depAirport+'<br>'+f.date+'</span></div><div class="flight-arrow">→</div><div class="flight-time"><b>'+f.arr+'</b><span>'+f.arrAirport+'<br>'+(f.arrDate||f.date)+'</span></div></div><div class="travel-advice"><div><b>Recommended check-in / airport arrival:</b> '+f.checkin+'</div><div><b>Recommended leave time:</b> '+f.leave+'</div>'+(f.note?'<div><b>Note:</b> '+f.note+'</div>':'')+'</div><div class="actions"><a class="btn" href="'+doc+'" target="_blank">📄 Flight documents</a></div></div>';}
 function travelCards(id,x){var flights=(travelByStop[id]||[]).map(flightCard).join('');var transfers=x.transfers.map(function(v){return '<div class="transfer-item"><div class="transfer-title">🚐 '+v[0]+'</div><div class="transfer-note">'+v[1]+'</div></div>';}).join('');return '<div class="travel-section"><div class="flight-grid">'+flights+'</div><div class="transfer-grid">'+transfers+'</div></div>';}
 
 document.getElementById('pages').innerHTML=Object.entries(d).map(([id,x])=>`
@@ -221,7 +239,7 @@ document.getElementById('pages').innerHTML=Object.entries(d).map(([id,x])=>`
 ${sectionBanner('✈️','Trip Essentials','Flights, transfers, hotel and your destination checklist',true)}
 ${travelCards(id,x)}
 <div class="primary-grid">
-  <div class="card hotel-card">${photoBlock(x.hotel[0],photos[id].hotel)}<div class="hotel-body"><div class="label">🏨 Where we're staying</div><div class="hotel-name">${x.hotel[0]}</div><div class="hotel-address">📍 ${x.hotel[1]}</div><div class="status">${x.hotel[2]}</div><div class="actions"><a class="btn primary" href="${mapLink(x.hotel[0]+' '+x.hotel[1])}" target="_blank">📍 Directions</a><button class="btn disabled">🎫 Booking documents</button></div></div></div>
+  <div class="card hotel-card">${photoBlock(x.hotel[0],photos[id].hotel)}<div class="hotel-body"><div class="label">🏨 Where we're staying</div><div class="hotel-name">${x.hotel[0]}</div><div class="hotel-address">📍 ${x.hotel[1]}</div><div class="status">${x.hotel[2]}</div><div class="actions"><a class="btn primary" href="${mapLink(x.hotel[0]+' '+x.hotel[1])}" target="_blank">📍 Directions</a><a class="btn" href="${driveLinks.hotelDocs[id]}" target="_blank">🎫 Booking documents</a></div></div></div>
   <div class="card todo-card"><div class="todo-head"><div><div class="label">✅ To-do list</div><div class="small">Before & during this stop</div></div><div class="counter">${x.tasks.length} items</div></div>${x.tasks.map((v,i)=>`<label class="check-row"><input type="checkbox" data-key="${id}-task-${i}"><span class="check-copy"><b>${v[0]}</b><span>${v[1]}</span></span></label>`).join('')}</div>
 </div>
 
