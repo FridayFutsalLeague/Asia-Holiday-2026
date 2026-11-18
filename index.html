@@ -9,7 +9,7 @@
 :root{--bg:#f4f6f8;--card:#fff;--ink:#172033;--muted:#6f7b8d;--line:#e6eaf0;--navy:#0b1320;--soft:#eef3f8;--green:#0f8b6d;--r:22px;--shadow:0 14px 40px rgba(16,32,55,.10)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink)}button,a{font:inherit}button{cursor:pointer}a{text-decoration:none}
 .app{max-width:940px;margin:0 auto;min-height:100vh;padding-bottom:88px}
-.topbar{background:var(--navy);color:#fff;padding:16px 18px 13px;display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{display:flex;align-items:center;gap:11px}.logo{width:38px;height:38px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(145deg,#31b7ff,#7557ff);font-size:20px}.brand b{display:block;font-size:15px}.brand small{display:block;color:#aeb8c6;font-size:11px;margin-top:3px}.trip-chip{font-size:11px;font-weight:750;background:#ffffff12;border:1px solid #ffffff20;padding:8px 10px;border-radius:999px}
+.topbar{background:var(--navy);color:#fff;padding:16px 18px 13px;display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{display:flex;align-items:center;gap:11px}.logo{width:38px;height:38px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(145deg,#31b7ff,#7557ff);font-size:20px}.brand b{display:block;font-size:15px}.brand small{display:block;color:#aeb8c6;font-size:11px;margin-top:3px}.top-meta{display:flex;align-items:center;gap:8px}.trip-chip{font-size:11px;font-weight:750;background:#ffffff12;border:1px solid #ffffff20;padding:8px 10px;border-radius:999px}.mel-clock{min-width:88px;background:#ffffff12;border:1px solid #ffffff20;padding:6px 10px;border-radius:13px;text-align:right}.mel-clock span{display:block;font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:#aeb8c6;font-weight:800}.mel-clock b{display:block;font-size:12px;margin-top:1px}
 .tabs-shell{position:sticky;top:0;z-index:50;background:rgba(244,246,248,.94);backdrop-filter:blur(16px);border-bottom:1px solid #dbe1e9cc}.tabs{display:flex;gap:8px;overflow-x:auto;padding:10px 12px;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}.tab{flex:0 0 auto;border:1px solid var(--line);background:#fff;color:#566173;padding:9px 13px;border-radius:999px;font-size:12px;font-weight:780}.tab.active{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:0 8px 20px rgba(11,19,32,.18)}.tab .mini-flag{margin-right:5px}
 .page{display:none}.page.active{display:block}
 .home-hero{margin:14px 14px 0;padding:24px 22px 22px;border-radius:28px;color:#fff;background:radial-gradient(circle at 92% 0%,rgba(88,194,255,.8) 0 0,transparent 33%),radial-gradient(circle at 15% 115%,rgba(126,87,255,.7) 0 0,transparent 37%),linear-gradient(135deg,#0b1320,#20385f)}.kicker{font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:850;color:#b7c9e7}.home-hero h1{margin:8px 0 7px;font-size:32px;line-height:1.03}.home-hero p{margin:0;color:#d6dfed;font-size:14px}.hero-pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{font-size:11px;font-weight:750;padding:8px 10px;border-radius:999px;background:#ffffff13;border:1px solid #ffffff20}
@@ -17,7 +17,7 @@
 .card{background:#fff;border:1px solid #e5eaf0;border-radius:var(--r);box-shadow:var(--shadow);padding:17px}.label{font-size:10px;letter-spacing:.11em;text-transform:uppercase;font-weight:850;color:#8792a2}.big{font-size:18px;font-weight:850;margin-top:7px}.small{font-size:12px;color:var(--muted);line-height:1.55;margin-top:5px}
 .quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.quick{border:1px solid var(--line);background:#fff;border-radius:16px;padding:13px 8px;text-align:center;font-size:11px;font-weight:780;color:#475264}.quick i{display:block;font-style:normal;font-size:22px;margin-bottom:6px}
 .destination-hero{margin:14px 14px 0;border-radius:28px;padding:22px;color:#fff;min-height:174px;display:flex;flex-direction:column;justify-content:flex-end}.destination-hero .city-flag{font-size:30px;margin-bottom:7px}.destination-hero h1{font-size:30px;line-height:1;margin:0 0 6px}.destination-hero p{font-size:13px;margin:0;color:#eef4fb}.theme-pattaya{background:linear-gradient(135deg,#007fa3,#27a9bc 58%,#67c6ba)}.theme-hoian{background:linear-gradient(135deg,#9a4c1f,#d08a35 56%,#e7b45b)}.theme-danang{background:linear-gradient(135deg,#126a8d,#2589b0 55%,#52b8c6)}.theme-hcm{background:linear-gradient(135deg,#6f304a,#a84459 55%,#d0645d)}.theme-bkk1{background:linear-gradient(135deg,#45286f,#7451aa 55%,#a66cc0)}.theme-bkk2{background:linear-gradient(135deg,#1c305b,#315ea2 55%,#6388c7)}
-.todo-card{padding:0;overflow:hidden}.todo-head{padding:16px 17px 11px;display:flex;justify-content:space-between;align-items:center}.counter{font-size:10px;font-weight:850;color:#738094;background:#f0f3f6;border-radius:999px;padding:6px 8px}.check-row{display:flex;gap:10px;padding:12px 17px;border-top:1px solid #edf0f4}.check-row input{width:18px;height:18px;margin-top:1px;accent-color:var(--green)}.check-copy b{display:block;font-size:13px}.check-copy span{display:block;font-size:11px;color:var(--muted);margin-top:3px;line-height:1.4}
+.primary-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:14px;align-items:stretch;margin-bottom:4px}.primary-grid .card{height:100%}.primary-grid .hotel-card{display:flex;flex-direction:column}.primary-grid .hotel-card .hotel-body{flex:1}.todo-card{padding:0;overflow:hidden}.todo-head{padding:16px 17px 11px;display:flex;justify-content:space-between;align-items:center}.counter{font-size:10px;font-weight:850;color:#738094;background:#f0f3f6;border-radius:999px;padding:6px 8px}.check-row{display:flex;gap:10px;padding:12px 17px;border-top:1px solid #edf0f4}.check-row input{width:18px;height:18px;margin-top:1px;accent-color:var(--green)}.check-copy b{display:block;font-size:13px}.check-copy span{display:block;font-size:11px;color:var(--muted);margin-top:3px;line-height:1.4}
 .attractions{display:grid;gap:14px}.attraction-card{background:#fff;border:1px solid #e8edf2;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);position:relative}.photo{height:180px;background:linear-gradient(135deg,#d7e4ef,#a8bfd3)}.photo img{width:100%;height:100%;object-fit:cover;display:block}.photo-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:7px;background:linear-gradient(135deg,#dce9f2,#afc6d8);color:#496277}.photo-placeholder .cam{font-size:28px}.photo-placeholder span{font-size:11px;font-weight:800}.rank{position:absolute;left:12px;top:12px;width:34px;height:34px;border-radius:12px;display:grid;place-items:center;background:#0b1320dd;color:#fff;font-size:12px;font-weight:900}.attraction-body{padding:15px 16px 16px}.attraction-title{font-size:17px;font-weight:900}.meta{display:grid;gap:8px;margin-top:11px}.meta-row{display:grid;grid-template-columns:74px 1fr;gap:9px;font-size:11px;line-height:1.45}.meta-row b{color:#7a8595;text-transform:uppercase;letter-spacing:.07em;font-size:9px}.meta-row span{color:#4c5868}
 .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);background:#fff;color:#344054;border-radius:12px;padding:9px 11px;font-size:11px;font-weight:800}.btn.primary{background:var(--navy);border-color:var(--navy);color:#fff}.btn.disabled{opacity:.45;pointer-events:none}
 .hotel-card{padding:0;overflow:hidden}.hotel-body{padding:16px}.hotel-name{font-size:20px;font-weight:900}.hotel-address{font-size:12px;color:var(--muted);line-height:1.5;margin-top:7px}.status{display:inline-block;padding:5px 8px;border-radius:999px;background:#e9fbf4;color:#08765c;font-size:10px;font-weight:820;margin-top:10px}
@@ -25,12 +25,12 @@
 .restaurant-list{display:grid;gap:10px}.restaurant{border:1px solid #e9edf2;border-radius:18px;padding:14px;background:#fff}.restaurant-name{font-size:15px;font-weight:900}
 .map-card{background:linear-gradient(145deg,#f8fbfd,#eef4f7)}.map-visual{height:140px;border-radius:17px;background:linear-gradient(135deg,#dce7e0,#c9d9e5);display:grid;place-items:center;color:#546579;font-size:38px}.map-copy{font-size:11px;color:var(--muted);line-height:1.5;margin-top:10px}
 .nav{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(940px,100%);display:grid;grid-template-columns:repeat(4,1fr);background:#fffffff2;backdrop-filter:blur(18px);border-top:1px solid var(--line);padding:8px 8px calc(8px + env(safe-area-inset-bottom));z-index:60}.nav button{border:0;background:transparent;color:#7a8595;font-size:10px;font-weight:780}.nav i{display:block;font-style:normal;font-size:20px;margin-bottom:2px}
-@media(min-width:720px){.home-hero,.destination-hero{margin-left:20px;margin-right:20px}.wrap{padding-left:20px;padding-right:20px}.tabs{justify-content:center}.attractions{grid-template-columns:1fr 1fr}.attraction-card:first-child{grid-column:span 2}.restaurant-list{grid-template-columns:1fr 1fr}.transfer-grid{grid-template-columns:1fr 1fr}}@media(max-width:560px){.quick-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:720px){.home-hero,.destination-hero{margin-left:20px;margin-right:20px}.wrap{padding-left:20px;padding-right:20px}.tabs{justify-content:center}.attractions{grid-template-columns:1fr 1fr}.attraction-card:first-child{grid-column:span 2}.restaurant-list{grid-template-columns:1fr 1fr}.transfer-grid{grid-template-columns:1fr 1fr}}@media(max-width:650px){.primary-grid{grid-template-columns:1fr}.quick-grid{grid-template-columns:repeat(2,1fr)}.topbar{align-items:flex-start}.top-meta{gap:6px}.trip-chip{padding:7px 8px}.mel-clock{min-width:82px;padding:5px 8px}}
 </style>
 </head>
 <body>
 <main class="app">
-<header class="topbar"><div class="brand"><div class="logo">✈️</div><div><b>Asia Holiday 2026</b><small>Thailand + Vietnam</small></div></div><div class="trip-chip">2–29 Dec</div></header>
+<header class="topbar"><div class="brand"><div class="logo">✈️</div><div><b>Asia Holiday 2026</b><small>Thailand + Vietnam</small></div></div><div class="top-meta"><div class="trip-chip">2–29 Dec</div><div class="mel-clock"><span>Melbourne</span><b id="melTime">--:--</b></div></div></header>
 <div class="tabs-shell"><div class="tabs" id="tabs"><button class="tab active" data-page="home" onclick="go('home')">Overview</button></div></div>
 <section id="home" class="page active">
 <div class="home-hero"><div class="kicker">Pham Family Holiday</div><h1>Thailand + Vietnam<br>2026</h1><p>Everything for the trip, organised by destination.</p><div class="hero-pills"><span class="pill">🌏 27 nights</span><span class="pill">👨‍👩‍👧‍👦 Family of 4</span><span class="pill">📍 6 destination stops</span></div></div>
@@ -49,7 +49,7 @@ attractions:[
 ["Koh Larn","Koh Larn, Bang Lamung, Chon Buri, Thailand","Beach day. Save ferry / speedboat details and preferred beach.",""],
 ["Underwater World Pattaya","22/22 Moo 11, Sukhumvit Rd, Nong Prue, Bang Lamung, Chon Buri 20150","Good indoor option with kids. Add current ticket price and feeding times.","https://underwaterworldpattaya.com/?lang=en"],
 ["Pattaya Floating Market","451/304 Moo 12, Sukhumvit Rd, Nong Prue, Bang Lamung, Chon Buri 20150","Good for a shorter visit, snacks and photos. Add ticket / boat pricing.",""]],
-hotel:["Grande Centre Point Voyage Pattaya","Pattaya, Chon Buri, Thailand","Booked"],
+hotel:["Grande Centre Point Voyage Pattaya","808, 908 M.5 Na Kluea, Bang Lamung, Chonburi 20150, Thailand","Booked"],
 transfers:[["Bangkok → Pattaya","Add pickup time, driver/company, meeting point, price and confirmation number."]],
 restaurants:[["Restaurant to add","Add address","Add dishes to try","Add price range","Add wait times, child-friendly notes or Instagram recommendation."]]},
 hoian:{f:"🇻🇳",t:"Hoi An",short:"Hoi An",theme:"theme-hoian",date:"7–10 Dec · 3 nights",
@@ -60,7 +60,7 @@ attractions:[
 ["Cam Thanh Basket Boats","Cam Thanh, Hoi An, Quang Nam, Vietnam","Choose a quieter family-friendly operator and confirm total price.",""],
 ["VinWonders Nam Hoi An","Binh Minh, Thang Binh, Quang Nam, Vietnam","Full family day. Add 2026 ticket price and transport plan.","https://vinwonders.com/en/vinwonders-nam-hoi-an/"],
 ["Japanese Covered Bridge","Nguyen Thi Minh Khai, Minh An, Hoi An, Quang Nam","Easy to combine with Ancient Town.","https://hoianworldheritage.org.vn/en"]],
-hotel:["Hotel Royal Hoi An – The Legacy by the River","Hoi An, Quang Nam, Vietnam","Add confirmation"],
+hotel:["Hotel Royal Hoi An – The Legacy by the River","39 Dao Duy Tu Street, Hoi An, Vietnam","Add confirmation"],
 transfers:[["Bangkok → Da Nang","VN698 · 7 Dec · 12:20 → 14:00."],["Da Nang Airport → Hoi An","Add hotel shuttle / private transfer confirmation."]],
 restaurants:[["Restaurant to add","Add address","Add dishes to try","Add price range","Add queue times, opening hours and family notes."]]},
 danang:{f:"🇻🇳",t:"Da Nang",short:"Da Nang",theme:"theme-danang",date:"10–16 Dec · 6 nights",
@@ -92,7 +92,7 @@ attractions:[
 ["Benjakitti Park","Ratchadaphisek Rd, Khlong Toei, Bangkok","Good stroller-friendly outdoor break near Asoke.",""],
 ["Sukhumvit / Asoke","Asoke, Bangkok, Thailand","Use this stay to explore a different part of Bangkok from Silom.",""],
 ["Siam Shopping District","Siam, Pathum Wan, Bangkok","Shopping, dining and air-conditioned family-friendly day.",""],
-["Fifth attraction to choose","Bangkok, Thailand","Replace this with another specific activity once chosen.",""]],
+["Erawan Shrine","Ratchadamri Rd, Lumphini, Pathum Wan, Bangkok","A famous central Bangkok shrine that is easy to combine with Siam and CentralWorld.",""]],
 hotel:["Shama Lakeview Asoke Bangkok","41 Sukhumvit 16, Khlong Toei, Bangkok 10110, Thailand","Booking"],
 transfers:[["HCM → Bangkok","VN605 · 21 Dec · 11:35 → 13:10."],["Airport → Shama","Add Grab / transfer details and estimated journey time."]],
 restaurants:[["Restaurant to add","Add Asoke / Sukhumvit address","Add dish to try","Add price range","Add child-friendly and queue notes."]]},
@@ -109,11 +109,50 @@ transfers:[["Shama → Pullman Bangkok Hotel G","Add checkout, luggage and Grab 
 restaurants:[["Club Lounge","Pullman Bangkok Hotel G","Afternoon tea + evening canapés","Included with G Suite lounge access","Soft drinks and selected alcoholic drinks are complimentary during lounge service."],["Restaurant to add","Add Silom / riverside address","Add dish to try","Add price range","Add wait time / booking notes."]]}
 };
 
+const photos={
+pattaya:{hotel:"https://spacepattaya.com/upload/gallery-voyage-1.webp",attractions:[
+"https://www.nongnoochpattaya.com/uploads/images/202310/0e51222f9e32879ca44f44dd96a40e5a.jpg",
+"https://cdn.generationvoyage.fr/2025/04/Sanctuaire-de-la-Verite-a-Pattaya.jpeg",
+"https://ak-d.tripcdn.com/images/1mi1b2234avept1a85ADA_R_600_400_R5_Q90.jpg?proc=source%2Ftrip",
+"https://image.kkday.com/v2/image/get/c_fit%2Cq_55%2Ct_webp%2Cw_960/s1.kkday.com/product_251502/20241011041957_Lh4ZD/jpg",
+"https://www.pelago.co/img/products/TH-Thailand/pattaya-floating-market/1215-0648_img_1813.jpg"]},
+hoian:{hotel:"https://hotelroyalhoian.vn/wp-content/uploads/2024/10/DJI_0140-3-1.webp",attractions:[
+"https://app-api.glodival.vn/storage/o/images/8Lko5QCwxnUBLJY3ghJSQBmZRyUNanguhHqEPcaV.jpg",
+"https://o0f7.c11.e2-2.dev/gyg/t822314%288%29.jpg",
+"https://cdn.kimkim.com/files/a/images/42eba3ed80cef7e235df58eb8c386feb845093b7/original-825fdee9766667966fabdddf56bca7d9.jpg",
+"https://static.vinwonders.com/production/from-hue-to-hoi-an-6.jpg",
+"https://vstatic.vietnam.vn/vietnam/resource/IMAGE/2025/5/25/30b9284fbcb442ad8ac806f389e9a8ab"]},
+danang:{hotel:"https://content.r9cdn.net/himg/d8/77/38/expedia_group-10339635-b754f9-079966.jpg",attractions:[
+"https://e3holidays.com/public/uploads/0000/1/2025/06/30/vietnam1.jpg",
+"https://bablocal.com/storage/posts/2026-01/696f99fe51aab.jpg",
+"https://newasiatours.com/uploads/Travel%20Guide/Luot8/Dragon%20Bridge%20in%20Da%20Nang/4-thousand-of-visitors-watching-the-fire-show.jpg",
+"https://static.vinwonders.com/2022/09/Son-tra-peninsula-banner.jpg",
+"https://izitour.com/media/imglib/danang-ngu-hanh-son-2.webp"]},
+hcm:{hotel:"https://static.travelated.com/storage/hotels3/919/9194591/property/93947127798.webp?format=webp&mode=crop&scale=down&w=3840&webp.quality=75",attractions:[
+"https://makeyourasia.com/templates/yootheme/cache/b0/1-day-saigon-b01296a8.jpeg",
+"https://d1u7goitqk7klj.cloudfront.net/t6ywnp4aveqaqglbw9z03bwb0xu9",
+"https://www.saigonlocaltour.com/wp-content/uploads/Ben-Thanh-Market-Ho-Chi-Minh.jpg",
+"https://infocanho.com/wp-content/uploads/2025/09/khu-do-thi-vinhomes-central-park-tan-cang.jpg",
+"https://saigonriversightseeing.com/wp-content/uploads/2025/12/shutterstock_759434539_supersize-scaled.jpg"]},
+bkk1:{hotel:"https://media.onyx-hospitality.com/-/media/project/shama/common/property/lakeview-asoke/hotel-photos/overview/lobby-3.jpg?rev=003918a2727146db8b3eb0d3cd45fbb3",attractions:[
+"https://cdn-ak.f.st-hatena.com/images/fotolife/s/sozororki/20190323/20190323160615.jpg",
+"https://www.amayaescapes.com/journals/BL022-Bangkok-Guide-Part-II/Bangkok-Guide-Part-II-417.webp",
+"https://farm66.staticflickr.com/65535/55002831568_2f70b0c2bf_z.jpg",
+"https://cdn.sanity.io/images/nxpteyfv/goguides/1971bff5170e62a56417d556f586a61cf39071c0-1600x1066.jpg",
+"https://www.reisroutes.be/userfiles/fotos/erawan-shrine-bangkok_36118_xl.jpg"]},
+bkk2:{hotel:"https://admin.hire4event.com/assets/venueimage/pullman-bangkok-hotel-g.webp",attractions:[
+"https://excursionmania.com/supplier/uploads/excursions/excursions/ex-2935/bangkok-best-two-temples-emera1739045922.jpg",
+"https://imagenes.elpais.com/resizer/v2/ASWW4IIP7ZC2PJRJLFG5KQJE4U.jpg?auth=6b1ede0e9a2bc9209bed9fbb0fb00e06862f73bd4661e7687854c2be7b5ca4cd&width=1200",
+"https://ibooking-com.b-cdn.net/guides/bangkok/best-family-activities-in-bangkok-featured.jpg?format=webp&quality=78&width=1920",
+"https://images.hive.blog/0x0/https%3A/files.peakd.com/file/peakd-hive/x-rain/23zS4xSR4ASwE9CRqhx67nBTGeqK6Z7Qt8rDpT8FCEPK9ityxxEjYedpnVVGmcodK7Czm.JPG",
+"https://pimg.1px.tw/may1215may/1673449791-2760841587-g.jpg"]}
+};
+
 const tabs=document.getElementById('tabs');
 tabs.innerHTML+=Object.entries(d).map(([id,x])=>`<button class="tab" data-page="${id}" onclick="go('${id}')"><span class="mini-flag">${x.f}</span>${x.short}</button>`).join('');
 
 const mapLink=q=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q);
-const photoBlock=name=>`<div class="photo"><div class="photo-placeholder"><div class="cam">📷</div><span>Photo: ${name}</span></div></div>`;
+const photoBlock=(name,url)=>url?`<div class="photo"><img src="${url}" alt="${name}" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder\'><div class=\'cam\'>📷</div><span>Photo unavailable</span></div>'"></div>`:`<div class="photo"><div class="photo-placeholder"><div class="cam">📷</div><span>Photo to add</span></div></div>`;
 
 const attractionCard=(a,i)=>`<article class="attraction-card">
 ${photoBlock(a[0])}<div class="rank">${i+1}</div>
@@ -130,14 +169,14 @@ document.getElementById('pages').innerHTML=Object.entries(d).map(([id,x])=>`
 <section id="${id}" class="page">
 <div class="destination-hero ${x.theme}"><div class="city-flag">${x.f}</div><h1>${x.t}</h1><p>${x.date}</p></div>
 <div class="wrap">
-<div class="section-head first"><h2>✅ To-do list</h2><span>Before & during this stop</span></div>
-<div class="card todo-card"><div class="todo-head"><div class="label">Destination checklist</div><div class="counter">${x.tasks.length} items</div></div>${x.tasks.map((v,i)=>`<label class="check-row"><input type="checkbox" data-key="${id}-task-${i}"><span class="check-copy"><b>${v[0]}</b><span>${v[1]}</span></span></label>`).join('')}</div>
+<div class="section-head first"><h2>Trip essentials</h2><span>Most important info</span></div>
+<div class="primary-grid">
+  <div class="card hotel-card">${photoBlock(x.hotel[0],photos[id].hotel)}<div class="hotel-body"><div class="label">🏨 Where we're staying</div><div class="hotel-name">${x.hotel[0]}</div><div class="hotel-address">📍 ${x.hotel[1]}</div><div class="status">${x.hotel[2]}</div><div class="actions"><a class="btn primary" href="${mapLink(x.hotel[0]+' '+x.hotel[1])}" target="_blank">📍 Directions</a><button class="btn disabled">🎫 Booking documents</button></div></div></div>
+  <div class="card todo-card"><div class="todo-head"><div><div class="label">✅ To-do list</div><div class="small">Before & during this stop</div></div><div class="counter">${x.tasks.length} items</div></div>${x.tasks.map((v,i)=>`<label class="check-row"><input type="checkbox" data-key="${id}-task-${i}"><span class="check-copy"><b>${v[0]}</b><span>${v[1]}</span></span></label>`).join('')}</div>
+</div>
 
 <div class="section-head"><h2>✨ Top 5 things to do</h2><span>Family highlights</span></div>
-<div class="attractions">${x.attractions.map(attractionCard).join('')}</div>
-
-<div class="section-head"><h2>🏨 Where we're staying</h2><span>${x.hotel[2]}</span></div>
-<div class="card hotel-card">${photoBlock(x.hotel[0])}<div class="hotel-body"><div class="hotel-name">${x.hotel[0]}</div><div class="hotel-address">📍 ${x.hotel[1]}</div><div class="status">${x.hotel[2]}</div><div class="actions"><a class="btn primary" href="${mapLink(x.hotel[0]+' '+x.hotel[1])}" target="_blank">📍 Directions</a><button class="btn disabled">🎫 Booking documents</button></div></div></div>
+<div class="attractions">${x.attractions.map((a,i)=>attractionCard(a,i,id)).join('')}</div>
 
 <div class="section-head"><h2>🚐 Transfers</h2><span>Flights & ground transport</span></div>
 <div class="transfer-grid">${x.transfers.map(v=>`<div class="transfer-item"><div class="transfer-title">${v[0]}</div><div class="transfer-note">${v[1]}</div></div>`).join('')}</div>
@@ -149,6 +188,14 @@ document.getElementById('pages').innerHTML=Object.entries(d).map(([id,x])=>`
 <div class="section-head"><h2>🗺️ Map</h2><span>Everything in one place</span></div>
 <div class="card map-card"><div class="map-visual">📍</div><div class="map-copy">Open this destination in Google Maps or jump straight to the hotel. A custom map with every saved attraction and restaurant can be added next.</div><div class="actions"><a class="btn primary" href="${mapLink(x.t)}" target="_blank">Open ${x.short} in Google Maps</a><a class="btn" href="${mapLink(x.hotel[0])}" target="_blank">Hotel</a></div></div>
 </div></section>`).join('');
+
+function updateMelbourneClock(){
+  const el=document.getElementById('melTime');
+  if(!el)return;
+  el.textContent=new Intl.DateTimeFormat('en-AU',{timeZone:'Australia/Melbourne',hour:'numeric',minute:'2-digit',hour12:true}).format(new Date());
+}
+updateMelbourneClock();
+setInterval(updateMelbourneClock,30000);
 
 function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.page===id));const active=document.querySelector('.tab.active');if(active)active.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});window.scrollTo({top:0,behavior:'smooth'})}
 function coming(name){alert(name+" can be added next.");}
