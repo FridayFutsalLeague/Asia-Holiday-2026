@@ -6,239 +6,154 @@
 <meta name="theme-color" content="#0b1320">
 <title>Asia Holiday 2026</title>
 <style>
-:root{
-  --bg:#f4f6f8;--card:#fff;--ink:#172033;--muted:#6f7b8d;--line:#e6eaf0;
-  --navy:#0b1320;--blue:#1f5eff;--soft:#eef3f8;--green:#0f8b6d;--r:22px;
-  --shadow:0 14px 40px rgba(16,32,55,.10)
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink)}
-button,a{font:inherit}
-button{cursor:pointer}
-.app{max-width:900px;margin:0 auto;min-height:100vh;padding-bottom:88px}
-.topbar{background:var(--navy);color:#fff;padding:16px 18px 13px;display:flex;justify-content:space-between;align-items:center;gap:12px}
-.brand{display:flex;align-items:center;gap:11px}
-.logo{width:38px;height:38px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(145deg,#31b7ff,#7557ff);box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);font-size:20px}
-.brand b{display:block;font-size:15px;line-height:1.1}.brand small{display:block;color:#aeb8c6;font-size:11px;margin-top:3px}
-.trip-chip{white-space:nowrap;font-size:11px;font-weight:750;background:#ffffff12;border:1px solid #ffffff20;padding:8px 10px;border-radius:999px}
-
-.tabs-shell{position:sticky;top:0;z-index:50;background:rgba(244,246,248,.94);backdrop-filter:blur(16px);border-bottom:1px solid rgba(219,225,233,.8)}
-.tabs{display:flex;gap:8px;overflow-x:auto;padding:10px 12px;scrollbar-width:none}
-.tabs::-webkit-scrollbar{display:none}
-.tab{flex:0 0 auto;border:1px solid var(--line);background:#fff;color:#566173;padding:9px 13px;border-radius:999px;font-size:12px;font-weight:780;box-shadow:0 2px 9px rgba(22,32,51,.04);transition:.18s ease}
-.tab:hover{transform:translateY(-1px)}
-.tab.active{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:0 8px 20px rgba(11,19,32,.18)}
-.tab .mini-flag{margin-right:5px}
-
+:root{--bg:#f4f6f8;--card:#fff;--ink:#172033;--muted:#6f7b8d;--line:#e6eaf0;--navy:#0b1320;--soft:#eef3f8;--green:#0f8b6d;--r:22px;--shadow:0 14px 40px rgba(16,32,55,.10)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink)}button,a{font:inherit}button{cursor:pointer}a{text-decoration:none}
+.app{max-width:940px;margin:0 auto;min-height:100vh;padding-bottom:88px}
+.topbar{background:var(--navy);color:#fff;padding:16px 18px 13px;display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{display:flex;align-items:center;gap:11px}.logo{width:38px;height:38px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(145deg,#31b7ff,#7557ff);font-size:20px}.brand b{display:block;font-size:15px}.brand small{display:block;color:#aeb8c6;font-size:11px;margin-top:3px}.trip-chip{font-size:11px;font-weight:750;background:#ffffff12;border:1px solid #ffffff20;padding:8px 10px;border-radius:999px}
+.tabs-shell{position:sticky;top:0;z-index:50;background:rgba(244,246,248,.94);backdrop-filter:blur(16px);border-bottom:1px solid #dbe1e9cc}.tabs{display:flex;gap:8px;overflow-x:auto;padding:10px 12px;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}.tab{flex:0 0 auto;border:1px solid var(--line);background:#fff;color:#566173;padding:9px 13px;border-radius:999px;font-size:12px;font-weight:780}.tab.active{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:0 8px 20px rgba(11,19,32,.18)}.tab .mini-flag{margin-right:5px}
 .page{display:none}.page.active{display:block}
-.home-hero{margin:14px 14px 0;padding:24px 22px 22px;border-radius:28px;position:relative;overflow:hidden;color:#fff;background:
-radial-gradient(circle at 92% 0%,rgba(88,194,255,.8) 0 0,transparent 33%),
-radial-gradient(circle at 15% 115%,rgba(126,87,255,.7) 0 0,transparent 37%),
-linear-gradient(135deg,#0b1320 0%,#172a4c 56%,#20385f 100%)}
-.home-hero:after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;right:-70px;bottom:-95px;border:1px solid rgba(255,255,255,.13);box-shadow:0 0 0 28px rgba(255,255,255,.035),0 0 0 58px rgba(255,255,255,.025)}
-.kicker{font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:850;color:#b7c9e7}
-.home-hero h1{margin:8px 0 7px;font-size:32px;line-height:1.03;letter-spacing:-.03em}
-.home-hero p{margin:0;color:#d6dfed;font-size:14px}
-.hero-pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px;position:relative;z-index:2}
-.pill{font-size:11px;font-weight:750;padding:8px 10px;border-radius:999px;background:#ffffff13;border:1px solid #ffffff20}
-.route{margin-top:20px;position:relative;z-index:2}
-.route-line{height:3px;background:#ffffff22;border-radius:999px;overflow:hidden}.route-line span{display:block;height:100%;width:100%;background:linear-gradient(90deg,#60d7ff,#b28cff)}
-.route-labels{display:flex;justify-content:space-between;font-size:10px;color:#cad5e4;margin-top:7px}
-
-.wrap{padding:18px 14px 22px}
-.section-head{display:flex;align-items:end;justify-content:space-between;margin:5px 3px 12px}.section-head h2{margin:0;font-size:18px;letter-spacing:-.02em}.section-head span{font-size:11px;color:var(--muted)}
-.summary-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:12px}
-.card{background:var(--card);border:1px solid rgba(229,234,240,.9);border-radius:var(--r);box-shadow:var(--shadow);padding:17px}
-.card + .card{margin-top:12px}.summary-grid .card + .card{margin-top:0}
-.label{font-size:10px;letter-spacing:.11em;text-transform:uppercase;font-weight:850;color:#8792a2}
-.big{font-size:18px;line-height:1.2;font-weight:850;margin-top:7px;letter-spacing:-.02em}
-.small{font-size:12px;color:var(--muted);line-height:1.55;margin-top:5px}
-.quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
-.quick{border:1px solid var(--line);background:#fff;border-radius:16px;padding:13px 8px;text-align:center;font-size:11px;font-weight:780;color:#475264}
-.quick i{display:block;font-style:normal;font-size:22px;margin-bottom:6px}
-
-.destination-hero{margin:14px 14px 0;border-radius:28px;padding:22px;color:#fff;position:relative;overflow:hidden;min-height:174px;display:flex;flex-direction:column;justify-content:flex-end}
-.destination-hero:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.26) 100%)}
-.destination-hero:after{content:"";position:absolute;width:230px;height:230px;border-radius:50%;right:-110px;top:-120px;border:1px solid rgba(255,255,255,.22);box-shadow:0 0 0 34px rgba(255,255,255,.05),0 0 0 68px rgba(255,255,255,.03)}
-.destination-hero > *{position:relative;z-index:2}
-.destination-hero .city-flag{font-size:30px;margin-bottom:7px}
-.destination-hero h1{font-size:30px;line-height:1;margin:0 0 6px;letter-spacing:-.035em}
-.destination-hero p{font-size:13px;margin:0;color:#eef4fb}
-.hero-status{display:inline-flex;align-items:center;gap:6px;width:max-content;margin-top:11px;padding:7px 9px;border-radius:999px;background:#ffffff16;border:1px solid #ffffff25;font-size:10px;font-weight:800}
-.hero-status:before{content:"";width:7px;height:7px;border-radius:50%;background:#7ef0bf}
-
-.theme-pattaya{background:linear-gradient(135deg,#007fa3,#27a9bc 58%,#67c6ba)}
-.theme-hoian{background:linear-gradient(135deg,#9a4c1f,#d08a35 56%,#e7b45b)}
-.theme-danang{background:linear-gradient(135deg,#126a8d,#2589b0 55%,#52b8c6)}
-.theme-hcm{background:linear-gradient(135deg,#6f304a,#a84459 55%,#d0645d)}
-.theme-bkk1{background:linear-gradient(135deg,#45286f,#7451aa 55%,#a66cc0)}
-.theme-bkk2{background:linear-gradient(135deg,#1c305b,#315ea2 55%,#6388c7)}
-
-.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
-.info-grid .card{margin:0}
-.icon-title{display:flex;align-items:center;gap:10px;margin-bottom:8px}.icon-bubble{width:36px;height:36px;border-radius:12px;background:var(--soft);display:grid;place-items:center;font-size:18px}.icon-title b{font-size:14px}
-.status{display:inline-block;padding:5px 8px;border-radius:999px;background:#e9fbf4;color:#08765c;font-size:10px;font-weight:820;margin-top:10px}
-.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}
-.btn{border:1px solid var(--line);background:#fff;color:#344054;border-radius:12px;padding:9px 11px;font-size:11px;font-weight:800}.btn.primary{background:var(--navy);border-color:var(--navy);color:#fff}
-
-.activity-list{display:grid;gap:9px;margin-top:10px}
-.activity{display:grid;grid-template-columns:36px 1fr auto;gap:10px;align-items:center;padding:11px 12px;border:1px solid #edf0f4;background:#fbfcfd;border-radius:15px}
-.activity .num{width:31px;height:31px;border-radius:10px;display:grid;place-items:center;background:#edf3f8;font-size:11px;font-weight:850;color:#5c697b}.activity b{font-size:13px}.activity .arrow{color:#a0a8b4;font-size:16px}
-.food-card{margin-top:10px;border:1px solid #edf0f4;background:#fbfcfd;border-radius:16px;padding:13px}
-.food-card .food-name{font-size:13px;font-weight:850}.food-card .food-note{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.45}
-.note{font-size:11px;color:#657184;border:1px dashed #cdd5df;border-radius:15px;padding:12px;line-height:1.55;background:#fafbfd}
-
-.nav{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(900px,100%);display:grid;grid-template-columns:repeat(4,1fr);background:rgba(255,255,255,.95);backdrop-filter:blur(18px);border-top:1px solid var(--line);padding:8px 8px calc(8px + env(safe-area-inset-bottom));z-index:60}
-.nav button{border:0;background:transparent;color:#7a8595;font-size:10px;font-weight:780;padding:3px}.nav i{display:block;font-style:normal;font-size:20px;margin-bottom:2px}
-.nav button:first-child{color:var(--navy)}
-
-@media(max-width:560px){
-  .summary-grid,.info-grid{grid-template-columns:1fr}
-  .summary-grid .card + .card{margin-top:0}
-  .quick-grid{grid-template-columns:repeat(2,1fr)}
-}
-@media(min-width:720px){
-  .home-hero,.destination-hero{margin-left:20px;margin-right:20px}
-  .wrap{padding-left:20px;padding-right:20px}
-  .tabs{justify-content:center}
-}
+.home-hero{margin:14px 14px 0;padding:24px 22px 22px;border-radius:28px;color:#fff;background:radial-gradient(circle at 92% 0%,rgba(88,194,255,.8) 0 0,transparent 33%),radial-gradient(circle at 15% 115%,rgba(126,87,255,.7) 0 0,transparent 37%),linear-gradient(135deg,#0b1320,#20385f)}.kicker{font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:850;color:#b7c9e7}.home-hero h1{margin:8px 0 7px;font-size:32px;line-height:1.03}.home-hero p{margin:0;color:#d6dfed;font-size:14px}.hero-pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{font-size:11px;font-weight:750;padding:8px 10px;border-radius:999px;background:#ffffff13;border:1px solid #ffffff20}
+.wrap{padding:18px 14px 22px}.section-head{display:flex;align-items:end;justify-content:space-between;margin:22px 3px 12px}.section-head.first{margin-top:4px}.section-head h2{margin:0;font-size:18px}.section-head span{font-size:11px;color:var(--muted)}
+.card{background:#fff;border:1px solid #e5eaf0;border-radius:var(--r);box-shadow:var(--shadow);padding:17px}.label{font-size:10px;letter-spacing:.11em;text-transform:uppercase;font-weight:850;color:#8792a2}.big{font-size:18px;font-weight:850;margin-top:7px}.small{font-size:12px;color:var(--muted);line-height:1.55;margin-top:5px}
+.quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.quick{border:1px solid var(--line);background:#fff;border-radius:16px;padding:13px 8px;text-align:center;font-size:11px;font-weight:780;color:#475264}.quick i{display:block;font-style:normal;font-size:22px;margin-bottom:6px}
+.destination-hero{margin:14px 14px 0;border-radius:28px;padding:22px;color:#fff;min-height:174px;display:flex;flex-direction:column;justify-content:flex-end}.destination-hero .city-flag{font-size:30px;margin-bottom:7px}.destination-hero h1{font-size:30px;line-height:1;margin:0 0 6px}.destination-hero p{font-size:13px;margin:0;color:#eef4fb}.theme-pattaya{background:linear-gradient(135deg,#007fa3,#27a9bc 58%,#67c6ba)}.theme-hoian{background:linear-gradient(135deg,#9a4c1f,#d08a35 56%,#e7b45b)}.theme-danang{background:linear-gradient(135deg,#126a8d,#2589b0 55%,#52b8c6)}.theme-hcm{background:linear-gradient(135deg,#6f304a,#a84459 55%,#d0645d)}.theme-bkk1{background:linear-gradient(135deg,#45286f,#7451aa 55%,#a66cc0)}.theme-bkk2{background:linear-gradient(135deg,#1c305b,#315ea2 55%,#6388c7)}
+.todo-card{padding:0;overflow:hidden}.todo-head{padding:16px 17px 11px;display:flex;justify-content:space-between;align-items:center}.counter{font-size:10px;font-weight:850;color:#738094;background:#f0f3f6;border-radius:999px;padding:6px 8px}.check-row{display:flex;gap:10px;padding:12px 17px;border-top:1px solid #edf0f4}.check-row input{width:18px;height:18px;margin-top:1px;accent-color:var(--green)}.check-copy b{display:block;font-size:13px}.check-copy span{display:block;font-size:11px;color:var(--muted);margin-top:3px;line-height:1.4}
+.attractions{display:grid;gap:14px}.attraction-card{background:#fff;border:1px solid #e8edf2;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);position:relative}.photo{height:180px;background:linear-gradient(135deg,#d7e4ef,#a8bfd3)}.photo img{width:100%;height:100%;object-fit:cover;display:block}.photo-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:7px;background:linear-gradient(135deg,#dce9f2,#afc6d8);color:#496277}.photo-placeholder .cam{font-size:28px}.photo-placeholder span{font-size:11px;font-weight:800}.rank{position:absolute;left:12px;top:12px;width:34px;height:34px;border-radius:12px;display:grid;place-items:center;background:#0b1320dd;color:#fff;font-size:12px;font-weight:900}.attraction-body{padding:15px 16px 16px}.attraction-title{font-size:17px;font-weight:900}.meta{display:grid;gap:8px;margin-top:11px}.meta-row{display:grid;grid-template-columns:74px 1fr;gap:9px;font-size:11px;line-height:1.45}.meta-row b{color:#7a8595;text-transform:uppercase;letter-spacing:.07em;font-size:9px}.meta-row span{color:#4c5868}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);background:#fff;color:#344054;border-radius:12px;padding:9px 11px;font-size:11px;font-weight:800}.btn.primary{background:var(--navy);border-color:var(--navy);color:#fff}.btn.disabled{opacity:.45;pointer-events:none}
+.hotel-card{padding:0;overflow:hidden}.hotel-body{padding:16px}.hotel-name{font-size:20px;font-weight:900}.hotel-address{font-size:12px;color:var(--muted);line-height:1.5;margin-top:7px}.status{display:inline-block;padding:5px 8px;border-radius:999px;background:#e9fbf4;color:#08765c;font-size:10px;font-weight:820;margin-top:10px}
+.transfer-grid{display:grid;gap:10px}.transfer-item{border:1px solid #edf0f4;background:#fbfcfd;border-radius:16px;padding:13px}.transfer-item .transfer-title{font-size:13px;font-weight:850}.transfer-item .transfer-note{font-size:11px;color:var(--muted);line-height:1.5;margin-top:5px}
+.restaurant-list{display:grid;gap:10px}.restaurant{border:1px solid #e9edf2;border-radius:18px;padding:14px;background:#fff}.restaurant-name{font-size:15px;font-weight:900}
+.map-card{background:linear-gradient(145deg,#f8fbfd,#eef4f7)}.map-visual{height:140px;border-radius:17px;background:linear-gradient(135deg,#dce7e0,#c9d9e5);display:grid;place-items:center;color:#546579;font-size:38px}.map-copy{font-size:11px;color:var(--muted);line-height:1.5;margin-top:10px}
+.nav{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(940px,100%);display:grid;grid-template-columns:repeat(4,1fr);background:#fffffff2;backdrop-filter:blur(18px);border-top:1px solid var(--line);padding:8px 8px calc(8px + env(safe-area-inset-bottom));z-index:60}.nav button{border:0;background:transparent;color:#7a8595;font-size:10px;font-weight:780}.nav i{display:block;font-style:normal;font-size:20px;margin-bottom:2px}
+@media(min-width:720px){.home-hero,.destination-hero{margin-left:20px;margin-right:20px}.wrap{padding-left:20px;padding-right:20px}.tabs{justify-content:center}.attractions{grid-template-columns:1fr 1fr}.attraction-card:first-child{grid-column:span 2}.restaurant-list{grid-template-columns:1fr 1fr}.transfer-grid{grid-template-columns:1fr 1fr}}@media(max-width:560px){.quick-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
 <main class="app">
-<header class="topbar">
-  <div class="brand">
-    <div class="logo">✈️</div>
-    <div><b>Asia Holiday 2026</b><small>Thailand + Vietnam</small></div>
-  </div>
-  <div class="trip-chip">2–29 Dec</div>
-</header>
-
-<div class="tabs-shell">
-  <div class="tabs" id="tabs">
-    <button class="tab active" data-page="home" onclick="go('home')">Overview</button>
-  </div>
-</div>
-
+<header class="topbar"><div class="brand"><div class="logo">✈️</div><div><b>Asia Holiday 2026</b><small>Thailand + Vietnam</small></div></div><div class="trip-chip">2–29 Dec</div></header>
+<div class="tabs-shell"><div class="tabs" id="tabs"><button class="tab active" data-page="home" onclick="go('home')">Overview</button></div></div>
 <section id="home" class="page active">
-  <div class="home-hero">
-    <div class="kicker">Pham Family Holiday</div>
-    <h1>Thailand + Vietnam<br>2026</h1>
-    <p>Everything for the trip, organised by destination.</p>
-    <div class="hero-pills">
-      <span class="pill">🌏 27 nights</span>
-      <span class="pill">👨‍👩‍👧‍👦 Family of 4</span>
-      <span class="pill">📍 6 destination stops</span>
-    </div>
-    <div class="route">
-      <div class="route-line"><span></span></div>
-      <div class="route-labels"><span>Melbourne</span><span>Thailand</span><span>Vietnam</span><span>Bangkok</span></div>
-    </div>
-  </div>
-
-  <div class="wrap">
-    <div class="section-head"><h2>Trip overview</h2><span>2–29 December</span></div>
-    <div class="summary-grid">
-      <div class="card">
-        <div class="label">Route</div>
-        <div class="big">Pattaya → Hoi An → Da Nang → HCM → Bangkok</div>
-        <div class="small">Use the destination tabs above to jump straight to everything saved for each stop.</div>
-      </div>
-      <div class="card">
-        <div class="label">At a glance</div>
-        <div class="big">27 nights</div>
-        <div class="small">Thailand + Vietnam<br>2 adults + 2 kids</div>
-      </div>
-    </div>
-
-    <div class="section-head" style="margin-top:22px"><h2>Quick access</h2><span>Trip essentials</span></div>
-    <div class="quick-grid">
-      <button class="quick" onclick="coming('Travel documents')"><i>📄</i>Travel docs</button>
-      <button class="quick" onclick="coming('Packing checklist')"><i>✅</i>Packing</button>
-      <button class="quick" onclick="coming('Budget')"><i>💰</i>Budget</button>
-      <button class="quick" onclick="coming('Bookings')"><i>🎫</i>Bookings</button>
-    </div>
-  </div>
+<div class="home-hero"><div class="kicker">Pham Family Holiday</div><h1>Thailand + Vietnam<br>2026</h1><p>Everything for the trip, organised by destination.</p><div class="hero-pills"><span class="pill">🌏 27 nights</span><span class="pill">👨‍👩‍👧‍👦 Family of 4</span><span class="pill">📍 6 destination stops</span></div></div>
+<div class="wrap"><div class="section-head first"><h2>Quick access</h2><span>Trip essentials</span></div><div class="quick-grid"><button class="quick" onclick="coming('Travel documents')"><i>📄</i>Travel docs</button><button class="quick" onclick="coming('Packing checklist')"><i>✅</i>Packing</button><button class="quick" onclick="coming('Budget')"><i>💰</i>Budget</button><button class="quick" onclick="coming('Bookings')"><i>🎫</i>Bookings</button></div></div>
 </section>
-
 <div id="pages"></div>
-
-<nav class="nav">
-  <button onclick="go('home')"><i>🏠</i>Home</button>
-  <button onclick="coming('Day-by-day itinerary')"><i>📅</i>Itinerary</button>
-  <button onclick="coming('Packing checklist')"><i>✅</i>Checklist</button>
-  <button onclick="coming('Travel tools')"><i>☰</i>More</button>
-</nav>
+<nav class="nav"><button onclick="go('home')"><i>🏠</i>Home</button><button onclick="coming('Day-by-day itinerary')"><i>📅</i>Itinerary</button><button onclick="coming('Packing checklist')"><i>✅</i>Checklist</button><button onclick="coming('Travel tools')"><i>☰</i>More</button></nav>
 </main>
-
 <script>
 const d={
-pattaya:{f:"🇹🇭",t:"Pattaya",short:"Pattaya",theme:"theme-pattaya",date:"2–7 Dec · 5 nights",stay:"Grande Centre Point Voyage Pattaya",status:"Booked / planned",get:"Bangkok → Pattaya transfer",todo:["Nong Nooch Tropical Garden","Sanctuary of Truth","Koh Larn","Underwater World Pattaya","Pattaya Floating Market"],eat:["Add restaurants and Instagram saves here"],note:"Add booking number, check-in notes and map link."},
-hoian:{f:"🇻🇳",t:"Hoi An",short:"Hoi An",theme:"theme-hoian",date:"7–10 Dec · 3 nights",stay:"Hotel Royal Hoi An – The Legacy by the River",status:"Add confirmation",get:"VN698 Bangkok → Da Nang · transfer to Hoi An",todo:["Hoi An Ancient Town","Lantern boat + night market","Cam Thanh basket boats","VinWonders Nam Hoi An","Japanese Covered Bridge"],eat:["Add Hoi An food recommendations here"],note:"Focus on Old Town, lanterns, family activities and the airport transfer."},
-danang:{f:"🇻🇳",t:"Da Nang",short:"Da Nang",theme:"theme-danang",date:"10–16 Dec · 6 nights",stay:"Thè HEM Hotel and Apartment",status:"Booked",get:"Hoi An → Da Nang hotel transfer",todo:["Ba Na Hills + Golden Bridge","My Khe Beach","Dragon Bridge + Son Tra Night Market","Son Tra + Lady Buddha","Marble Mountains"],eat:["Add Da Nang restaurants and cafés here"],note:"Complimentary airport transfer offered by hotel. Add room and payment details."},
-hcm:{f:"🇻🇳",t:"Ho Chi Minh City",short:"HCM",theme:"theme-hcm",date:"16–21 Dec · 5 nights",stay:"Celine Living – Central",status:"Add confirmation",get:"VN6035 Da Nang → Ho Chi Minh City",todo:["District 1 landmarks","Saigon Zoo & Botanical Gardens","Ben Thanh Market","Landmark 81 + Central Park","Saigon River"],eat:["Cơm tấm Đề Thám — 269 Đề Thám, Bến Thành","Add more Instagram food saves here"],note:"Add booking number, room rate and quiet-room request."},
-bkk1:{f:"🇹🇭",t:"Bangkok · Part I",short:"Bangkok 1",theme:"theme-bkk1",date:"21–24 Dec · 3 nights",stay:"Shama Lakeview Asoke",status:"Booking",get:"VN605 HCM → Bangkok · transfer to Asoke",todo:["Terminal 21","Benjakitti Park","Asoke / Sukhumvit","Siam shopping day","Local food + cafés"],eat:["Add Asoke / Sukhumvit food saves here"],note:"Use this stay for the Asoke/Sukhumvit experience."},
-bkk2:{f:"🇹🇭",t:"Bangkok · Part II",short:"Bangkok 2",theme:"theme-bkk2",date:"24–29 Dec · 5 nights",stay:"Pullman Bangkok Hotel G",status:"Booked",get:"Shama → Pullman Hotel G",todo:["Grand Palace + Wat Phra Kaew","Wat Arun + Chao Phraya boat","SEA LIFE + Siam","ICONSIAM","Safari World"],eat:["Executive Lounge afternoon tea + evening canapés","Add Silom / riverside restaurants here"],note:"G Suite with Lounge Access. Add booking number and lounge notes."}
+pattaya:{f:"🇹🇭",t:"Pattaya",short:"Pattaya",theme:"theme-pattaya",date:"2–7 Dec · 5 nights",
+tasks:[["Complete Thailand Digital Arrival Card","Complete within the required pre-arrival window."],["Confirm Pattaya transfer","Save pickup and driver details."],["Save hotel confirmation offline","Keep a copy available on both phones."]],
+attractions:[
+["Nong Nooch Tropical Garden","34/1 Moo 7, Na Jomtien, Sattahip, Chon Buri 20250","Family-friendly gardens and dinosaur displays. Add final ticket price before travel.","https://nongnoochpattaya.com/"],
+["Sanctuary of Truth","206/2 Moo 5, Naklua, Bang Lamung, Chon Buri 20150","Allow around 2–3 hours. Check current family entry pricing.","https://sanctuaryoftruthmuseum.com/"],
+["Koh Larn","Koh Larn, Bang Lamung, Chon Buri, Thailand","Beach day. Save ferry / speedboat details and preferred beach.",""],
+["Underwater World Pattaya","22/22 Moo 11, Sukhumvit Rd, Nong Prue, Bang Lamung, Chon Buri 20150","Good indoor option with kids. Add current ticket price and feeding times.","https://underwaterworldpattaya.com/?lang=en"],
+["Pattaya Floating Market","451/304 Moo 12, Sukhumvit Rd, Nong Prue, Bang Lamung, Chon Buri 20150","Good for a shorter visit, snacks and photos. Add ticket / boat pricing.",""]],
+hotel:["Grande Centre Point Voyage Pattaya","Pattaya, Chon Buri, Thailand","Booked"],
+transfers:[["Bangkok → Pattaya","Add pickup time, driver/company, meeting point, price and confirmation number."]],
+restaurants:[["Restaurant to add","Add address","Add dishes to try","Add price range","Add wait times, child-friendly notes or Instagram recommendation."]]},
+hoian:{f:"🇻🇳",t:"Hoi An",short:"Hoi An",theme:"theme-hoian",date:"7–10 Dec · 3 nights",
+tasks:[["Have Vietnam e-visas ready","Keep printed and digital copies for everyone."],["Complete Vietnam pre-arrival information","Complete within the required window."],["Confirm airport → Hoi An transfer","Save pickup point and driver details."]],
+attractions:[
+["Hoi An Ancient Town","Hoi An Ancient Town, Quang Nam, Vietnam","Best from late afternoon into evening for lanterns.","https://hoianworldheritage.org.vn/en"],
+["Lantern Boat + Night Market","Thu Bon River / Nguyen Hoang Night Market, Hoi An","Go after sunset. Add expected boat price before travel.",""],
+["Cam Thanh Basket Boats","Cam Thanh, Hoi An, Quang Nam, Vietnam","Choose a quieter family-friendly operator and confirm total price.",""],
+["VinWonders Nam Hoi An","Binh Minh, Thang Binh, Quang Nam, Vietnam","Full family day. Add 2026 ticket price and transport plan.","https://vinwonders.com/en/vinwonders-nam-hoi-an/"],
+["Japanese Covered Bridge","Nguyen Thi Minh Khai, Minh An, Hoi An, Quang Nam","Easy to combine with Ancient Town.","https://hoianworldheritage.org.vn/en"]],
+hotel:["Hotel Royal Hoi An – The Legacy by the River","Hoi An, Quang Nam, Vietnam","Add confirmation"],
+transfers:[["Bangkok → Da Nang","VN698 · 7 Dec · 12:20 → 14:00."],["Da Nang Airport → Hoi An","Add hotel shuttle / private transfer confirmation."]],
+restaurants:[["Restaurant to add","Add address","Add dishes to try","Add price range","Add queue times, opening hours and family notes."]]},
+danang:{f:"🇻🇳",t:"Da Nang",short:"Da Nang",theme:"theme-danang",date:"10–16 Dec · 6 nights",
+tasks:[["Confirm complimentary airport transfer","Thè HEM offered pickup or drop-off."],["Check Ba Na Hills weather","Mountain weather can differ from the city."],["Save hotel payment details","Keep the payment schedule handy."]],
+attractions:[
+["Ba Na Hills + Golden Bridge","An Son, Hoa Vang, Da Nang, Vietnam","Full-day attraction. Add cable car / admission pricing.","https://banahills.sunworld.vn/en"],
+["My Khe Beach","Vo Nguyen Giap, Son Tra, Da Nang, Vietnam","Easy family downtime. Check sea conditions in December.",""],
+["Dragon Bridge + Son Tra Night Market","Dragon Bridge, Da Nang, Vietnam","Plan around the weekend fire/water show if operating.",""],
+["Son Tra + Lady Buddha","Linh Ung Pagoda, Son Tra Peninsula, Da Nang, Vietnam","Good half-day outing. Grab/private car is easiest with kids.",""],
+["Marble Mountains","81 Huyen Tran Cong Chua, Ngu Hanh Son, Da Nang, Vietnam","Carrier is more practical than a stroller. Add lift / entrance price.",""]],
+hotel:["Thè HEM Hotel and Apartment","Da Nang, Vietnam","Booked"],
+transfers:[["Hoi An → Da Nang","Add transfer pickup time and provider."],["Hotel → Da Nang Airport","Complimentary hotel transfer may be used for drop-off."]],
+restaurants:[["Restaurant to add","Add address","Add dishes to try","Add price range","Add Instagram / local recommendation notes."]]},
+hcm:{f:"🇻🇳",t:"Ho Chi Minh City",short:"HCM",theme:"theme-hcm",date:"16–21 Dec · 5 nights",
+tasks:[["Save VN6035 flight details","Da Nang → HCM · 16 Dec · 12:10 → 13:45."],["Save Celine quiet-room request","Higher floor, away from lifts / construction if possible."],["Prepare second Thailand TDAC","Needed before leaving Vietnam for Bangkok."]],
+attractions:[
+["District 1 Landmarks","Central District 1, Ho Chi Minh City, Vietnam","Combine Independence Palace, Post Office, Notre-Dame area and Nguyen Hue.",""],
+["Saigon Zoo & Botanical Gardens","2 Nguyen Binh Khiem, Ben Nghe, District 1, HCMC","Easy family option with open space. Add ticket price.",""],
+["Ben Thanh Market","Le Loi, Ben Thanh, District 1, HCMC","Best as a shorter browse for food and souvenirs.",""],
+["Landmark 81 + Central Park","720A Dien Bien Phu, Binh Thanh, HCMC","Modern skyline, mall and riverside park.",""],
+["Saigon River","Bach Dang Wharf / Saigon River, District 1, HCMC","Add preferred cruise operator, departure point and price.",""]],
+hotel:["Celine Living – Central","231 Nguyen Dinh Chieu, District 3, Ho Chi Minh City, Vietnam","Add confirmation"],
+transfers:[["Da Nang → Ho Chi Minh City","VN6035 · 16 Dec · 12:10 → 13:45."],["HCM hotel → SGN Airport","Add Grab / transfer departure time for 21 Dec."]],
+restaurants:[["Cơm tấm Đề Thám","269 Đề Thám, Bến Thành, Ho Chi Minh City, Vietnam","Cơm tấm / broken rice","Under US$3 per plate mentioned","Instagram recommendation warned the wait can be 1 hour+."],["Restaurant to add","Add address","Add dish to try","Add price range","Add wait times and notes."]]},
+bkk1:{f:"🇹🇭",t:"Bangkok · Part I",short:"Bangkok 1",theme:"theme-bkk1",date:"21–24 Dec · 3 nights",
+tasks:[["Complete second Thailand TDAC","For your 21 Dec HCM → Bangkok entry."],["Save Shama family confirmation","Keep written occupancy confirmation with the booking."],["Plan luggage move to Pullman","Add checkout and transfer timing for 24 Dec."]],
+attractions:[
+["Terminal 21","88 Sukhumvit Rd, Khlong Toei Nuea, Watthana, Bangkok","Easy first-day family option close to Asoke.","https://www.terminal21.co.th/asok/"],
+["Benjakitti Park","Ratchadaphisek Rd, Khlong Toei, Bangkok","Good stroller-friendly outdoor break near Asoke.",""],
+["Sukhumvit / Asoke","Asoke, Bangkok, Thailand","Use this stay to explore a different part of Bangkok from Silom.",""],
+["Siam Shopping District","Siam, Pathum Wan, Bangkok","Shopping, dining and air-conditioned family-friendly day.",""],
+["Fifth attraction to choose","Bangkok, Thailand","Replace this with another specific activity once chosen.",""]],
+hotel:["Shama Lakeview Asoke Bangkok","41 Sukhumvit 16, Khlong Toei, Bangkok 10110, Thailand","Booking"],
+transfers:[["HCM → Bangkok","VN605 · 21 Dec · 11:35 → 13:10."],["Airport → Shama","Add Grab / transfer details and estimated journey time."]],
+restaurants:[["Restaurant to add","Add Asoke / Sukhumvit address","Add dish to try","Add price range","Add child-friendly and queue notes."]]},
+bkk2:{f:"🇹🇭",t:"Bangkok · Part II",short:"Bangkok 2",theme:"theme-bkk2",date:"24–29 Dec · 5 nights",
+tasks:[["Save Pullman lounge benefits","Keep breakfast, afternoon tea and evening canapé details handy."],["Plan airport transfer for 29 Dec","Add pickup / departure time."],["Check final baggage weights","Useful before the flight back to Melbourne."]],
+attractions:[
+["Grand Palace + Wat Phra Kaew","Na Phra Lan Rd, Phra Borom Maha Ratchawang, Bangkok","Go early. Dress requirements apply. Add current ticket price.","https://www.royalgrandpalace.th/en/home"],
+["Wat Arun + Chao Phraya Boat","158 Wang Doem Rd, Wat Arun, Bangkok Yai, Bangkok","Combine temple visit with river transport.","https://www.watarun1.com/en"],
+["SEA LIFE Bangkok Ocean World + Siam","Siam Paragon, 991 Rama I Rd, Pathum Wan, Bangkok","Very family-friendly indoor day. Add ticket deal.","https://www.visitsealife.com/bangkok/en/"],
+["ICONSIAM","299 Charoen Nakhon Rd, Khlong Ton Sai, Khlong San, Bangkok","Good evening option for food, shopping and river views.","https://www.iconsiam.com/en"],
+["Safari World Bangkok","99 Panya Indra Rd, Sam Wa Tawan Tok, Khlong Sam Wa, Bangkok","Full-day outing. Add transfer and ticket plan.","https://www.safariworld.com/"]],
+hotel:["Pullman Bangkok Hotel G","188 Silom Rd, Suriyawong, Bang Rak, Bangkok 10500, Thailand","Booked"],
+transfers:[["Shama → Pullman Bangkok Hotel G","Add checkout, luggage and Grab details for 24 Dec."],["Pullman → Bangkok Airport","Add airport, pickup time and transport plan for 29 Dec."]],
+restaurants:[["Club Lounge","Pullman Bangkok Hotel G","Afternoon tea + evening canapés","Included with G Suite lounge access","Soft drinks and selected alcoholic drinks are complimentary during lounge service."],["Restaurant to add","Add Silom / riverside address","Add dish to try","Add price range","Add wait time / booking notes."]]}
 };
 
 const tabs=document.getElementById('tabs');
-tabs.innerHTML += Object.entries(d).map(([id,x])=>`<button class="tab" data-page="${id}" onclick="go('${id}')"><span class="mini-flag">${x.f}</span>${x.short}</button>`).join('');
+tabs.innerHTML+=Object.entries(d).map(([id,x])=>`<button class="tab" data-page="${id}" onclick="go('${id}')"><span class="mini-flag">${x.f}</span>${x.short}</button>`).join('');
+
+const mapLink=q=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q);
+const photoBlock=name=>`<div class="photo"><div class="photo-placeholder"><div class="cam">📷</div><span>Photo: ${name}</span></div></div>`;
+
+const attractionCard=(a,i)=>`<article class="attraction-card">
+${photoBlock(a[0])}<div class="rank">${i+1}</div>
+<div class="attraction-body"><div class="attraction-title">${a[0]}</div>
+<div class="meta"><div class="meta-row"><b>Address</b><span>${a[1]}</span></div><div class="meta-row"><b>Notes</b><span>${a[2]}</span></div></div>
+<div class="actions"><a class="btn primary" href="${mapLink(a[0]+' '+a[1])}" target="_blank">📍 Directions</a>${a[3]?`<a class="btn" href="${a[3]}" target="_blank">↗ Official website</a>`:`<button class="btn disabled">↗ Website to add</button>`}</div>
+</div></article>`;
+
+const restaurantCard=r=>`<article class="restaurant"><div class="restaurant-name">${r[0]}</div>
+<div class="meta"><div class="meta-row"><b>Address</b><span>${r[1]}</span></div><div class="meta-row"><b>Try</b><span>${r[2]}</span></div><div class="meta-row"><b>Price</b><span>${r[3]}</span></div><div class="meta-row"><b>Notes</b><span>${r[4]}</span></div></div>
+<div class="actions"><a class="btn" href="${mapLink(r[0]+' '+r[1])}" target="_blank">📍 Map</a></div></article>`;
 
 document.getElementById('pages').innerHTML=Object.entries(d).map(([id,x])=>`
 <section id="${id}" class="page">
-  <div class="destination-hero ${x.theme}">
-    <div class="city-flag">${x.f}</div>
-    <h1>${x.t}</h1>
-    <p>${x.date}</p>
-    <div class="hero-status">${x.status}</div>
-  </div>
-  <div class="wrap">
-    <div class="info-grid">
-      <div class="card">
-        <div class="icon-title"><div class="icon-bubble">🏨</div><b>Where we're staying</b></div>
-        <div class="big">${x.stay}</div>
-        <div class="status">${x.status}</div>
-        <div class="actions"><button class="btn primary" onclick="coming('Directions')">📍 Directions</button><button class="btn" onclick="coming('Booking details')">🎫 Booking</button></div>
-      </div>
-      <div class="card">
-        <div class="icon-title"><div class="icon-bubble">✈️</div><b>Getting there</b></div>
-        <div class="big" style="font-size:15px">${x.get}</div>
-        <div class="small">Transfer, timing and transport notes can live here.</div>
-      </div>
-    </div>
+<div class="destination-hero ${x.theme}"><div class="city-flag">${x.f}</div><h1>${x.t}</h1><p>${x.date}</p></div>
+<div class="wrap">
+<div class="section-head first"><h2>✅ To-do list</h2><span>Before & during this stop</span></div>
+<div class="card todo-card"><div class="todo-head"><div class="label">Destination checklist</div><div class="counter">${x.tasks.length} items</div></div>${x.tasks.map((v,i)=>`<label class="check-row"><input type="checkbox" data-key="${id}-task-${i}"><span class="check-copy"><b>${v[0]}</b><span>${v[1]}</span></span></label>`).join('')}</div>
 
-    <div class="card">
-      <div class="icon-title"><div class="icon-bubble">✨</div><b>Top things to do</b></div>
-      <div class="activity-list">
-        ${x.todo.map((v,i)=>`<div class="activity"><div class="num">${String(i+1).padStart(2,'0')}</div><b>${v}</b><span class="arrow">›</span></div>`).join('')}
-      </div>
-    </div>
+<div class="section-head"><h2>✨ Top 5 things to do</h2><span>Family highlights</span></div>
+<div class="attractions">${x.attractions.map(attractionCard).join('')}</div>
 
-    <div class="card">
-      <div class="icon-title"><div class="icon-bubble">🍜</div><b>Places to eat</b></div>
-      ${x.eat.map(v=>`<div class="food-card"><div class="food-name">${v}</div><div class="food-note">Save dishes, price notes, Instagram recommendations and map links here.</div></div>`).join('')}
-      <div class="actions"><button class="btn" onclick="coming('Add restaurant')">＋ Add place</button></div>
-    </div>
+<div class="section-head"><h2>🏨 Where we're staying</h2><span>${x.hotel[2]}</span></div>
+<div class="card hotel-card">${photoBlock(x.hotel[0])}<div class="hotel-body"><div class="hotel-name">${x.hotel[0]}</div><div class="hotel-address">📍 ${x.hotel[1]}</div><div class="status">${x.hotel[2]}</div><div class="actions"><a class="btn primary" href="${mapLink(x.hotel[0]+' '+x.hotel[1])}" target="_blank">📍 Directions</a><button class="btn disabled">🎫 Booking documents</button></div></div></div>
 
-    <div class="card">
-      <div class="icon-title"><div class="icon-bubble">🗺️</div><b>Maps & quick links</b></div>
-      <div class="actions"><button class="btn" onclick="coming('Google Maps links')">Google Maps</button><button class="btn" onclick="coming('Grab links')">Grab</button></div>
-    </div>
+<div class="section-head"><h2>🚐 Transfers</h2><span>Flights & ground transport</span></div>
+<div class="transfer-grid">${x.transfers.map(v=>`<div class="transfer-item"><div class="transfer-title">${v[0]}</div><div class="transfer-note">${v[1]}</div></div>`).join('')}</div>
 
-    <div class="note">${x.note}</div>
-  </div>
-</section>`).join('');
+<div class="section-head"><h2>🍜 Places to eat</h2><span>Saved food spots</span></div>
+<div class="restaurant-list">${x.restaurants.map(restaurantCard).join('')}</div>
+<div class="actions"><button class="btn" onclick="coming('Add restaurant')">＋ Add restaurant</button></div>
 
-function go(id){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.page===id));
-  const active=document.querySelector('.tab.active');
-  if(active) active.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-function coming(name){alert(name+" section is ready for the next build.");}
+<div class="section-head"><h2>🗺️ Map</h2><span>Everything in one place</span></div>
+<div class="card map-card"><div class="map-visual">📍</div><div class="map-copy">Open this destination in Google Maps or jump straight to the hotel. A custom map with every saved attraction and restaurant can be added next.</div><div class="actions"><a class="btn primary" href="${mapLink(x.t)}" target="_blank">Open ${x.short} in Google Maps</a><a class="btn" href="${mapLink(x.hotel[0])}" target="_blank">Hotel</a></div></div>
+</div></section>`).join('');
+
+function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.page===id));const active=document.querySelector('.tab.active');if(active)active.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});window.scrollTo({top:0,behavior:'smooth'})}
+function coming(name){alert(name+" can be added next.");}
+document.addEventListener('change',e=>{if(e.target.matches('input[type=checkbox][data-key]'))localStorage.setItem(e.target.dataset.key,e.target.checked?'1':'0')});
+document.querySelectorAll('input[type=checkbox][data-key]').forEach(cb=>cb.checked=localStorage.getItem(cb.dataset.key)==='1');
 </script>
 </body>
 </html>
