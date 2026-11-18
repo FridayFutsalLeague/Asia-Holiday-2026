@@ -1,58 +1,244 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Thailand + Vietnam 2026</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b1320">
+<title>Asia Holiday 2026</title>
 <style>
-:root{--bg:#f5f7fb;--card:#fff;--ink:#182033;--muted:#687386;--line:#e4e8ef;--accent:#111827;--r:19px}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink)}
-.app{max-width:760px;margin:auto;min-height:100vh;padding-bottom:82px}.hero{padding:30px 20px 26px;background:linear-gradient(135deg,#111827,#334155);color:white;border-radius:0 0 28px 28px}
-.kicker{font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.7;font-weight:800}.hero h1{font-size:30px;line-height:1.05;margin:8px 0}.hero p{margin:0;opacity:.82}
-.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{background:#ffffff18;padding:8px 10px;border-radius:999px;font-size:12px;font-weight:700}
-.wrap{padding:18px}.section{display:flex;justify-content:space-between;align-items:end;margin:5px 2px 12px}.section h2{font-size:18px;margin:0}.section span{font-size:12px;color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.dest,.card{background:var(--card);border:0;border-radius:var(--r);box-shadow:0 8px 26px #17203312}
-.dest{padding:16px;text-align:left;cursor:pointer}.dest b{display:block;margin-top:8px;font-size:16px}.dest small{color:var(--muted)}.flag{font-size:25px}
-.card{padding:16px;margin-bottom:12px}.label{font-size:11px;text-transform:uppercase;letter-spacing:.09em;font-weight:800;color:var(--muted)}.big{font-size:18px;font-weight:800;margin-top:5px}.small{font-size:13px;color:var(--muted);line-height:1.45;margin-top:5px}
-.page{display:none}.page.active{display:block}.head{display:flex;gap:12px;align-items:center;padding:20px 18px 8px}.back{width:38px;height:38px;border-radius:12px;border:1px solid var(--line);background:white;font-size:19px}
-.head h2{margin:0;font-size:24px}.head p{margin:2px 0 0;color:var(--muted);font-size:12px}.list{padding-left:18px}.list li{margin:8px 0;font-size:13px;line-height:1.4}
-.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn{border:1px solid var(--line);background:#fff;border-radius:11px;padding:9px 11px;font-size:12px;font-weight:750}.btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
-.note{font-size:12px;color:var(--muted);border:1px dashed #cbd5e1;border-radius:14px;padding:11px;line-height:1.45}.status{display:inline-block;margin-left:6px;padding:4px 7px;background:#ecfdf5;color:#047857;border-radius:999px;font-size:10px}
-.nav{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(760px,100%);display:grid;grid-template-columns:repeat(4,1fr);background:#fffffff2;border-top:1px solid var(--line);padding:8px 8px calc(8px + env(safe-area-inset-bottom));backdrop-filter:blur(14px)}
-.nav button{border:0;background:transparent;color:var(--muted);font-size:11px;font-weight:750}.nav i{display:block;font-style:normal;font-size:20px;margin-bottom:2px}
-@media(min-width:650px){.grid{grid-template-columns:repeat(3,1fr)}.hero{padding-left:28px}.wrap{padding:22px 24px}}
+:root{
+  --bg:#f4f6f8;--card:#fff;--ink:#172033;--muted:#6f7b8d;--line:#e6eaf0;
+  --navy:#0b1320;--blue:#1f5eff;--soft:#eef3f8;--green:#0f8b6d;--r:22px;
+  --shadow:0 14px 40px rgba(16,32,55,.10)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink)}
+button,a{font:inherit}
+button{cursor:pointer}
+.app{max-width:900px;margin:0 auto;min-height:100vh;padding-bottom:88px}
+.topbar{background:var(--navy);color:#fff;padding:16px 18px 13px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:11px}
+.logo{width:38px;height:38px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(145deg,#31b7ff,#7557ff);box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);font-size:20px}
+.brand b{display:block;font-size:15px;line-height:1.1}.brand small{display:block;color:#aeb8c6;font-size:11px;margin-top:3px}
+.trip-chip{white-space:nowrap;font-size:11px;font-weight:750;background:#ffffff12;border:1px solid #ffffff20;padding:8px 10px;border-radius:999px}
+
+.tabs-shell{position:sticky;top:0;z-index:50;background:rgba(244,246,248,.94);backdrop-filter:blur(16px);border-bottom:1px solid rgba(219,225,233,.8)}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:10px 12px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;border:1px solid var(--line);background:#fff;color:#566173;padding:9px 13px;border-radius:999px;font-size:12px;font-weight:780;box-shadow:0 2px 9px rgba(22,32,51,.04);transition:.18s ease}
+.tab:hover{transform:translateY(-1px)}
+.tab.active{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:0 8px 20px rgba(11,19,32,.18)}
+.tab .mini-flag{margin-right:5px}
+
+.page{display:none}.page.active{display:block}
+.home-hero{margin:14px 14px 0;padding:24px 22px 22px;border-radius:28px;position:relative;overflow:hidden;color:#fff;background:
+radial-gradient(circle at 92% 0%,rgba(88,194,255,.8) 0 0,transparent 33%),
+radial-gradient(circle at 15% 115%,rgba(126,87,255,.7) 0 0,transparent 37%),
+linear-gradient(135deg,#0b1320 0%,#172a4c 56%,#20385f 100%)}
+.home-hero:after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;right:-70px;bottom:-95px;border:1px solid rgba(255,255,255,.13);box-shadow:0 0 0 28px rgba(255,255,255,.035),0 0 0 58px rgba(255,255,255,.025)}
+.kicker{font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:850;color:#b7c9e7}
+.home-hero h1{margin:8px 0 7px;font-size:32px;line-height:1.03;letter-spacing:-.03em}
+.home-hero p{margin:0;color:#d6dfed;font-size:14px}
+.hero-pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px;position:relative;z-index:2}
+.pill{font-size:11px;font-weight:750;padding:8px 10px;border-radius:999px;background:#ffffff13;border:1px solid #ffffff20}
+.route{margin-top:20px;position:relative;z-index:2}
+.route-line{height:3px;background:#ffffff22;border-radius:999px;overflow:hidden}.route-line span{display:block;height:100%;width:100%;background:linear-gradient(90deg,#60d7ff,#b28cff)}
+.route-labels{display:flex;justify-content:space-between;font-size:10px;color:#cad5e4;margin-top:7px}
+
+.wrap{padding:18px 14px 22px}
+.section-head{display:flex;align-items:end;justify-content:space-between;margin:5px 3px 12px}.section-head h2{margin:0;font-size:18px;letter-spacing:-.02em}.section-head span{font-size:11px;color:var(--muted)}
+.summary-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:12px}
+.card{background:var(--card);border:1px solid rgba(229,234,240,.9);border-radius:var(--r);box-shadow:var(--shadow);padding:17px}
+.card + .card{margin-top:12px}.summary-grid .card + .card{margin-top:0}
+.label{font-size:10px;letter-spacing:.11em;text-transform:uppercase;font-weight:850;color:#8792a2}
+.big{font-size:18px;line-height:1.2;font-weight:850;margin-top:7px;letter-spacing:-.02em}
+.small{font-size:12px;color:var(--muted);line-height:1.55;margin-top:5px}
+.quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.quick{border:1px solid var(--line);background:#fff;border-radius:16px;padding:13px 8px;text-align:center;font-size:11px;font-weight:780;color:#475264}
+.quick i{display:block;font-style:normal;font-size:22px;margin-bottom:6px}
+
+.destination-hero{margin:14px 14px 0;border-radius:28px;padding:22px;color:#fff;position:relative;overflow:hidden;min-height:174px;display:flex;flex-direction:column;justify-content:flex-end}
+.destination-hero:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.26) 100%)}
+.destination-hero:after{content:"";position:absolute;width:230px;height:230px;border-radius:50%;right:-110px;top:-120px;border:1px solid rgba(255,255,255,.22);box-shadow:0 0 0 34px rgba(255,255,255,.05),0 0 0 68px rgba(255,255,255,.03)}
+.destination-hero > *{position:relative;z-index:2}
+.destination-hero .city-flag{font-size:30px;margin-bottom:7px}
+.destination-hero h1{font-size:30px;line-height:1;margin:0 0 6px;letter-spacing:-.035em}
+.destination-hero p{font-size:13px;margin:0;color:#eef4fb}
+.hero-status{display:inline-flex;align-items:center;gap:6px;width:max-content;margin-top:11px;padding:7px 9px;border-radius:999px;background:#ffffff16;border:1px solid #ffffff25;font-size:10px;font-weight:800}
+.hero-status:before{content:"";width:7px;height:7px;border-radius:50%;background:#7ef0bf}
+
+.theme-pattaya{background:linear-gradient(135deg,#007fa3,#27a9bc 58%,#67c6ba)}
+.theme-hoian{background:linear-gradient(135deg,#9a4c1f,#d08a35 56%,#e7b45b)}
+.theme-danang{background:linear-gradient(135deg,#126a8d,#2589b0 55%,#52b8c6)}
+.theme-hcm{background:linear-gradient(135deg,#6f304a,#a84459 55%,#d0645d)}
+.theme-bkk1{background:linear-gradient(135deg,#45286f,#7451aa 55%,#a66cc0)}
+.theme-bkk2{background:linear-gradient(135deg,#1c305b,#315ea2 55%,#6388c7)}
+
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.info-grid .card{margin:0}
+.icon-title{display:flex;align-items:center;gap:10px;margin-bottom:8px}.icon-bubble{width:36px;height:36px;border-radius:12px;background:var(--soft);display:grid;place-items:center;font-size:18px}.icon-title b{font-size:14px}
+.status{display:inline-block;padding:5px 8px;border-radius:999px;background:#e9fbf4;color:#08765c;font-size:10px;font-weight:820;margin-top:10px}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}
+.btn{border:1px solid var(--line);background:#fff;color:#344054;border-radius:12px;padding:9px 11px;font-size:11px;font-weight:800}.btn.primary{background:var(--navy);border-color:var(--navy);color:#fff}
+
+.activity-list{display:grid;gap:9px;margin-top:10px}
+.activity{display:grid;grid-template-columns:36px 1fr auto;gap:10px;align-items:center;padding:11px 12px;border:1px solid #edf0f4;background:#fbfcfd;border-radius:15px}
+.activity .num{width:31px;height:31px;border-radius:10px;display:grid;place-items:center;background:#edf3f8;font-size:11px;font-weight:850;color:#5c697b}.activity b{font-size:13px}.activity .arrow{color:#a0a8b4;font-size:16px}
+.food-card{margin-top:10px;border:1px solid #edf0f4;background:#fbfcfd;border-radius:16px;padding:13px}
+.food-card .food-name{font-size:13px;font-weight:850}.food-card .food-note{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.45}
+.note{font-size:11px;color:#657184;border:1px dashed #cdd5df;border-radius:15px;padding:12px;line-height:1.55;background:#fafbfd}
+
+.nav{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(900px,100%);display:grid;grid-template-columns:repeat(4,1fr);background:rgba(255,255,255,.95);backdrop-filter:blur(18px);border-top:1px solid var(--line);padding:8px 8px calc(8px + env(safe-area-inset-bottom));z-index:60}
+.nav button{border:0;background:transparent;color:#7a8595;font-size:10px;font-weight:780;padding:3px}.nav i{display:block;font-style:normal;font-size:20px;margin-bottom:2px}
+.nav button:first-child{color:var(--navy)}
+
+@media(max-width:560px){
+  .summary-grid,.info-grid{grid-template-columns:1fr}
+  .summary-grid .card + .card{margin-top:0}
+  .quick-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(min-width:720px){
+  .home-hero,.destination-hero{margin-left:20px;margin-right:20px}
+  .wrap{padding-left:20px;padding-right:20px}
+  .tabs{justify-content:center}
+}
 </style>
 </head>
-<body><main class="app">
+<body>
+<main class="app">
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">✈️</div>
+    <div><b>Asia Holiday 2026</b><small>Thailand + Vietnam</small></div>
+  </div>
+  <div class="trip-chip">2–29 Dec</div>
+</header>
+
+<div class="tabs-shell">
+  <div class="tabs" id="tabs">
+    <button class="tab active" data-page="home" onclick="go('home')">Overview</button>
+  </div>
+</div>
+
 <section id="home" class="page active">
-<div class="hero"><div class="kicker">Pham Family Holiday</div><h1>Thailand + Vietnam<br>2026</h1><p>Your trip, all in one place.</p>
-<div class="pills"><span class="pill">📅 2–29 Dec</span><span class="pill">🌏 27 nights</span><span class="pill">👨‍👩‍👧‍👦 Family of 4</span></div></div>
-<div class="wrap">
-<div class="card"><div class="label">Trip route</div><div class="big">Melbourne → Thailand → Vietnam → Bangkok</div><div class="small">Pattaya · Hoi An · Da Nang · HCM · Bangkok Part 1 · Bangkok Part 2</div></div>
-<div class="section"><h2>Destinations</h2><span>Tap to open</span></div>
-<div class="grid" id="grid"></div>
-<div class="section" style="margin-top:22px"><h2>Quick tools</h2></div>
-<div class="card"><div class="actions"><button class="btn">📄 Travel docs</button><button class="btn">✅ Packing</button><button class="btn">💰 Budget</button><button class="btn">🎫 Bookings</button></div></div>
-</div></section>
+  <div class="home-hero">
+    <div class="kicker">Pham Family Holiday</div>
+    <h1>Thailand + Vietnam<br>2026</h1>
+    <p>Everything for the trip, organised by destination.</p>
+    <div class="hero-pills">
+      <span class="pill">🌏 27 nights</span>
+      <span class="pill">👨‍👩‍👧‍👦 Family of 4</span>
+      <span class="pill">📍 6 destination stops</span>
+    </div>
+    <div class="route">
+      <div class="route-line"><span></span></div>
+      <div class="route-labels"><span>Melbourne</span><span>Thailand</span><span>Vietnam</span><span>Bangkok</span></div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="section-head"><h2>Trip overview</h2><span>2–29 December</span></div>
+    <div class="summary-grid">
+      <div class="card">
+        <div class="label">Route</div>
+        <div class="big">Pattaya → Hoi An → Da Nang → HCM → Bangkok</div>
+        <div class="small">Use the destination tabs above to jump straight to everything saved for each stop.</div>
+      </div>
+      <div class="card">
+        <div class="label">At a glance</div>
+        <div class="big">27 nights</div>
+        <div class="small">Thailand + Vietnam<br>2 adults + 2 kids</div>
+      </div>
+    </div>
+
+    <div class="section-head" style="margin-top:22px"><h2>Quick access</h2><span>Trip essentials</span></div>
+    <div class="quick-grid">
+      <button class="quick" onclick="coming('Travel documents')"><i>📄</i>Travel docs</button>
+      <button class="quick" onclick="coming('Packing checklist')"><i>✅</i>Packing</button>
+      <button class="quick" onclick="coming('Budget')"><i>💰</i>Budget</button>
+      <button class="quick" onclick="coming('Bookings')"><i>🎫</i>Bookings</button>
+    </div>
+  </div>
+</section>
+
 <div id="pages"></div>
-<nav class="nav"><button onclick="go('home')"><i>🏠</i>Home</button><button onclick="go('home')"><i>📍</i>Places</button><button onclick="alert('Day-by-day itinerary comes next')"><i>📅</i>Trip</button><button onclick="alert('Travel docs, budget and checklists come next')"><i>☰</i>More</button></nav>
+
+<nav class="nav">
+  <button onclick="go('home')"><i>🏠</i>Home</button>
+  <button onclick="coming('Day-by-day itinerary')"><i>📅</i>Itinerary</button>
+  <button onclick="coming('Packing checklist')"><i>✅</i>Checklist</button>
+  <button onclick="coming('Travel tools')"><i>☰</i>More</button>
+</nav>
 </main>
+
 <script>
 const d={
-pattaya:{f:"🇹🇭",t:"Pattaya",date:"2–7 Dec · 5 nights",stay:"Grande Centre Point Voyage Pattaya",status:"Booked / planned",get:"Bangkok → Pattaya transfer",todo:["Nong Nooch Tropical Garden","Sanctuary of Truth","Koh Larn","Underwater World Pattaya","Pattaya Floating Market"],eat:["Add restaurants and Instagram saves here"],note:"Add booking number, check-in notes and map link."},
-hoian:{f:"🇻🇳",t:"Hoi An",date:"7–10 Dec · 3 nights",stay:"Hotel Royal Hoi An – The Legacy by the River",status:"Add confirmation",get:"VN698 Bangkok → Da Nang · transfer to Hoi An",todo:["Hoi An Ancient Town","Lantern boat + night market","Cam Thanh basket boats","VinWonders Nam Hoi An","Japanese Covered Bridge"],eat:["Add Hoi An food recommendations here"],note:"Focus on Old Town, lanterns, family activities and the airport transfer."},
-danang:{f:"🇻🇳",t:"Da Nang",date:"10–16 Dec · 6 nights",stay:"Thè HEM Hotel and Apartment",status:"Booked",get:"Hoi An → Da Nang hotel transfer",todo:["Ba Na Hills + Golden Bridge","My Khe Beach","Dragon Bridge + Son Tra Night Market","Son Tra + Lady Buddha","Marble Mountains"],eat:["Add Da Nang restaurants and cafés here"],note:"Complimentary airport transfer offered by hotel. Add room and payment details."},
-hcm:{f:"🇻🇳",t:"HCM",date:"16–21 Dec · 5 nights",stay:"Celine Living – Central",status:"Add confirmation",get:"VN6035 Da Nang → Ho Chi Minh City",todo:["District 1 landmarks","Saigon Zoo & Botanical Gardens","Ben Thanh Market","Landmark 81 + Central Park","Saigon River"],eat:["Cơm tấm Đề Thám — 269 Đề Thám, Bến Thành","Add more Instagram food saves here"],note:"Add booking number, room rate and quiet-room request."},
-bkk1:{f:"🇹🇭",t:"Bangkok · Part I",date:"21–24 Dec · 3 nights",stay:"Shama Lakeview Asoke",status:"Booking",get:"VN605 HCM → Bangkok · transfer to Asoke",todo:["Terminal 21","Benjakitti Park","Asoke / Sukhumvit","Siam shopping day","Local food + cafés"],eat:["Add Asoke / Sukhumvit food saves here"],note:"Use this stay for the Asoke/Sukhumvit experience."},
-bkk2:{f:"🇹🇭",t:"Bangkok · Part II",date:"24–29 Dec · 5 nights",stay:"Pullman Bangkok Hotel G",status:"Booked",get:"Shama → Pullman Hotel G",todo:["Grand Palace + Wat Phra Kaew","Wat Arun + Chao Phraya boat","SEA LIFE + Siam","ICONSIAM","Safari World"],eat:["Executive Lounge afternoon tea + evening canapés","Add Silom / riverside restaurants here"],note:"G Suite with Lounge Access. Add booking number and lounge notes."}
+pattaya:{f:"🇹🇭",t:"Pattaya",short:"Pattaya",theme:"theme-pattaya",date:"2–7 Dec · 5 nights",stay:"Grande Centre Point Voyage Pattaya",status:"Booked / planned",get:"Bangkok → Pattaya transfer",todo:["Nong Nooch Tropical Garden","Sanctuary of Truth","Koh Larn","Underwater World Pattaya","Pattaya Floating Market"],eat:["Add restaurants and Instagram saves here"],note:"Add booking number, check-in notes and map link."},
+hoian:{f:"🇻🇳",t:"Hoi An",short:"Hoi An",theme:"theme-hoian",date:"7–10 Dec · 3 nights",stay:"Hotel Royal Hoi An – The Legacy by the River",status:"Add confirmation",get:"VN698 Bangkok → Da Nang · transfer to Hoi An",todo:["Hoi An Ancient Town","Lantern boat + night market","Cam Thanh basket boats","VinWonders Nam Hoi An","Japanese Covered Bridge"],eat:["Add Hoi An food recommendations here"],note:"Focus on Old Town, lanterns, family activities and the airport transfer."},
+danang:{f:"🇻🇳",t:"Da Nang",short:"Da Nang",theme:"theme-danang",date:"10–16 Dec · 6 nights",stay:"Thè HEM Hotel and Apartment",status:"Booked",get:"Hoi An → Da Nang hotel transfer",todo:["Ba Na Hills + Golden Bridge","My Khe Beach","Dragon Bridge + Son Tra Night Market","Son Tra + Lady Buddha","Marble Mountains"],eat:["Add Da Nang restaurants and cafés here"],note:"Complimentary airport transfer offered by hotel. Add room and payment details."},
+hcm:{f:"🇻🇳",t:"Ho Chi Minh City",short:"HCM",theme:"theme-hcm",date:"16–21 Dec · 5 nights",stay:"Celine Living – Central",status:"Add confirmation",get:"VN6035 Da Nang → Ho Chi Minh City",todo:["District 1 landmarks","Saigon Zoo & Botanical Gardens","Ben Thanh Market","Landmark 81 + Central Park","Saigon River"],eat:["Cơm tấm Đề Thám — 269 Đề Thám, Bến Thành","Add more Instagram food saves here"],note:"Add booking number, room rate and quiet-room request."},
+bkk1:{f:"🇹🇭",t:"Bangkok · Part I",short:"Bangkok 1",theme:"theme-bkk1",date:"21–24 Dec · 3 nights",stay:"Shama Lakeview Asoke",status:"Booking",get:"VN605 HCM → Bangkok · transfer to Asoke",todo:["Terminal 21","Benjakitti Park","Asoke / Sukhumvit","Siam shopping day","Local food + cafés"],eat:["Add Asoke / Sukhumvit food saves here"],note:"Use this stay for the Asoke/Sukhumvit experience."},
+bkk2:{f:"🇹🇭",t:"Bangkok · Part II",short:"Bangkok 2",theme:"theme-bkk2",date:"24–29 Dec · 5 nights",stay:"Pullman Bangkok Hotel G",status:"Booked",get:"Shama → Pullman Hotel G",todo:["Grand Palace + Wat Phra Kaew","Wat Arun + Chao Phraya boat","SEA LIFE + Siam","ICONSIAM","Safari World"],eat:["Executive Lounge afternoon tea + evening canapés","Add Silom / riverside restaurants here"],note:"G Suite with Lounge Access. Add booking number and lounge notes."}
 };
-const grid=document.getElementById('grid');
-grid.innerHTML=Object.entries(d).map(([id,x])=>`<button class="dest" onclick="go('${id}')"><span class="flag">${x.f}</span><b>${x.t}</b><small>${x.date}</small></button>`).join('');
-document.getElementById('pages').innerHTML=Object.entries(d).map(([id,x])=>`<section id="${id}" class="page"><div class="head"><button class="back" onclick="go('home')">←</button><div><h2>${x.f} ${x.t}</h2><p>${x.date}</p></div></div><div class="wrap">
-<div class="card"><div class="label">Stay <span class="status">${x.status}</span></div><div class="big">${x.stay}</div><div class="actions"><button class="btn primary">📍 Directions</button><button class="btn">🎫 Booking</button></div></div>
-<div class="card"><div class="label">Getting there</div><div class="big" style="font-size:16px">${x.get}</div></div>
-<div class="card"><div class="label">Things to do</div><ul class="list">${x.todo.map(v=>`<li>${v}</li>`).join('')}</ul></div>
-<div class="card"><div class="label">Eat</div><ul class="list">${x.eat.map(v=>`<li>${v}</li>`).join('')}</ul><button class="btn">＋ Add place</button></div>
-<div class="card"><div class="label">Map & quick links</div><div class="actions"><button class="btn">Google Maps</button><button class="btn">Grab</button></div></div>
-<div class="note">${x.note}</div></div></section>`).join('');
-function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');scrollTo(0,0)}
-</script></body></html>
+
+const tabs=document.getElementById('tabs');
+tabs.innerHTML += Object.entries(d).map(([id,x])=>`<button class="tab" data-page="${id}" onclick="go('${id}')"><span class="mini-flag">${x.f}</span>${x.short}</button>`).join('');
+
+document.getElementById('pages').innerHTML=Object.entries(d).map(([id,x])=>`
+<section id="${id}" class="page">
+  <div class="destination-hero ${x.theme}">
+    <div class="city-flag">${x.f}</div>
+    <h1>${x.t}</h1>
+    <p>${x.date}</p>
+    <div class="hero-status">${x.status}</div>
+  </div>
+  <div class="wrap">
+    <div class="info-grid">
+      <div class="card">
+        <div class="icon-title"><div class="icon-bubble">🏨</div><b>Where we're staying</b></div>
+        <div class="big">${x.stay}</div>
+        <div class="status">${x.status}</div>
+        <div class="actions"><button class="btn primary" onclick="coming('Directions')">📍 Directions</button><button class="btn" onclick="coming('Booking details')">🎫 Booking</button></div>
+      </div>
+      <div class="card">
+        <div class="icon-title"><div class="icon-bubble">✈️</div><b>Getting there</b></div>
+        <div class="big" style="font-size:15px">${x.get}</div>
+        <div class="small">Transfer, timing and transport notes can live here.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="icon-title"><div class="icon-bubble">✨</div><b>Top things to do</b></div>
+      <div class="activity-list">
+        ${x.todo.map((v,i)=>`<div class="activity"><div class="num">${String(i+1).padStart(2,'0')}</div><b>${v}</b><span class="arrow">›</span></div>`).join('')}
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="icon-title"><div class="icon-bubble">🍜</div><b>Places to eat</b></div>
+      ${x.eat.map(v=>`<div class="food-card"><div class="food-name">${v}</div><div class="food-note">Save dishes, price notes, Instagram recommendations and map links here.</div></div>`).join('')}
+      <div class="actions"><button class="btn" onclick="coming('Add restaurant')">＋ Add place</button></div>
+    </div>
+
+    <div class="card">
+      <div class="icon-title"><div class="icon-bubble">🗺️</div><b>Maps & quick links</b></div>
+      <div class="actions"><button class="btn" onclick="coming('Google Maps links')">Google Maps</button><button class="btn" onclick="coming('Grab links')">Grab</button></div>
+    </div>
+
+    <div class="note">${x.note}</div>
+  </div>
+</section>`).join('');
+
+function go(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.page===id));
+  const active=document.querySelector('.tab.active');
+  if(active) active.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function coming(name){alert(name+" section is ready for the next build.");}
+</script>
+</body>
+</html>
