@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Thailand + Vietnam 2026</title>
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--ink:#182033;--muted:#687386;--line:#e4e8ef;--accent:#111827;--r:19px}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink)}
+.app{max-width:760px;margin:auto;min-height:100vh;padding-bottom:82px}.hero{padding:30px 20px 26px;background:linear-gradient(135deg,#111827,#334155);color:white;border-radius:0 0 28px 28px}
+.kicker{font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.7;font-weight:800}.hero h1{font-size:30px;line-height:1.05;margin:8px 0}.hero p{margin:0;opacity:.82}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{background:#ffffff18;padding:8px 10px;border-radius:999px;font-size:12px;font-weight:700}
+.wrap{padding:18px}.section{display:flex;justify-content:space-between;align-items:end;margin:5px 2px 12px}.section h2{font-size:18px;margin:0}.section span{font-size:12px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.dest,.card{background:var(--card);border:0;border-radius:var(--r);box-shadow:0 8px 26px #17203312}
+.dest{padding:16px;text-align:left;cursor:pointer}.dest b{display:block;margin-top:8px;font-size:16px}.dest small{color:var(--muted)}.flag{font-size:25px}
+.card{padding:16px;margin-bottom:12px}.label{font-size:11px;text-transform:uppercase;letter-spacing:.09em;font-weight:800;color:var(--muted)}.big{font-size:18px;font-weight:800;margin-top:5px}.small{font-size:13px;color:var(--muted);line-height:1.45;margin-top:5px}
+.page{display:none}.page.active{display:block}.head{display:flex;gap:12px;align-items:center;padding:20px 18px 8px}.back{width:38px;height:38px;border-radius:12px;border:1px solid var(--line);background:white;font-size:19px}
+.head h2{margin:0;font-size:24px}.head p{margin:2px 0 0;color:var(--muted);font-size:12px}.list{padding-left:18px}.list li{margin:8px 0;font-size:13px;line-height:1.4}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn{border:1px solid var(--line);background:#fff;border-radius:11px;padding:9px 11px;font-size:12px;font-weight:750}.btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.note{font-size:12px;color:var(--muted);border:1px dashed #cbd5e1;border-radius:14px;padding:11px;line-height:1.45}.status{display:inline-block;margin-left:6px;padding:4px 7px;background:#ecfdf5;color:#047857;border-radius:999px;font-size:10px}
+.nav{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(760px,100%);display:grid;grid-template-columns:repeat(4,1fr);background:#fffffff2;border-top:1px solid var(--line);padding:8px 8px calc(8px + env(safe-area-inset-bottom));backdrop-filter:blur(14px)}
+.nav button{border:0;background:transparent;color:var(--muted);font-size:11px;font-weight:750}.nav i{display:block;font-style:normal;font-size:20px;margin-bottom:2px}
+@media(min-width:650px){.grid{grid-template-columns:repeat(3,1fr)}.hero{padding-left:28px}.wrap{padding:22px 24px}}
+</style>
+</head>
+<body><main class="app">
+<section id="home" class="page active">
+<div class="hero"><div class="kicker">Pham Family Holiday</div><h1>Thailand + Vietnam<br>2026</h1><p>Your trip, all in one place.</p>
+<div class="pills"><span class="pill">📅 2–29 Dec</span><span class="pill">🌏 27 nights</span><span class="pill">👨‍👩‍👧‍👦 Family of 4</span></div></div>
+<div class="wrap">
+<div class="card"><div class="label">Trip route</div><div class="big">Melbourne → Thailand → Vietnam → Bangkok</div><div class="small">Pattaya · Hoi An · Da Nang · HCM · Bangkok Part 1 · Bangkok Part 2</div></div>
+<div class="section"><h2>Destinations</h2><span>Tap to open</span></div>
+<div class="grid" id="grid"></div>
+<div class="section" style="margin-top:22px"><h2>Quick tools</h2></div>
+<div class="card"><div class="actions"><button class="btn">📄 Travel docs</button><button class="btn">✅ Packing</button><button class="btn">💰 Budget</button><button class="btn">🎫 Bookings</button></div></div>
+</div></section>
+<div id="pages"></div>
+<nav class="nav"><button onclick="go('home')"><i>🏠</i>Home</button><button onclick="go('home')"><i>📍</i>Places</button><button onclick="alert('Day-by-day itinerary comes next')"><i>📅</i>Trip</button><button onclick="alert('Travel docs, budget and checklists come next')"><i>☰</i>More</button></nav>
+</main>
+<script>
+const d={
+pattaya:{f:"🇹🇭",t:"Pattaya",date:"2–7 Dec · 5 nights",stay:"Grande Centre Point Voyage Pattaya",status:"Booked / planned",get:"Bangkok → Pattaya transfer",todo:["Nong Nooch Tropical Garden","Sanctuary of Truth","Koh Larn","Underwater World Pattaya","Pattaya Floating Market"],eat:["Add restaurants and Instagram saves here"],note:"Add booking number, check-in notes and map link."},
+hoian:{f:"🇻🇳",t:"Hoi An",date:"7–10 Dec · 3 nights",stay:"Hotel Royal Hoi An – The Legacy by the River",status:"Add confirmation",get:"VN698 Bangkok → Da Nang · transfer to Hoi An",todo:["Hoi An Ancient Town","Lantern boat + night market","Cam Thanh basket boats","VinWonders Nam Hoi An","Japanese Covered Bridge"],eat:["Add Hoi An food recommendations here"],note:"Focus on Old Town, lanterns, family activities and the airport transfer."},
+danang:{f:"🇻🇳",t:"Da Nang",date:"10–16 Dec · 6 nights",stay:"Thè HEM Hotel and Apartment",status:"Booked",get:"Hoi An → Da Nang hotel transfer",todo:["Ba Na Hills + Golden Bridge","My Khe Beach","Dragon Bridge + Son Tra Night Market","Son Tra + Lady Buddha","Marble Mountains"],eat:["Add Da Nang restaurants and cafés here"],note:"Complimentary airport transfer offered by hotel. Add room and payment details."},
+hcm:{f:"🇻🇳",t:"HCM",date:"16–21 Dec · 5 nights",stay:"Celine Living – Central",status:"Add confirmation",get:"VN6035 Da Nang → Ho Chi Minh City",todo:["District 1 landmarks","Saigon Zoo & Botanical Gardens","Ben Thanh Market","Landmark 81 + Central Park","Saigon River"],eat:["Cơm tấm Đề Thám — 269 Đề Thám, Bến Thành","Add more Instagram food saves here"],note:"Add booking number, room rate and quiet-room request."},
+bkk1:{f:"🇹🇭",t:"Bangkok · Part I",date:"21–24 Dec · 3 nights",stay:"Shama Lakeview Asoke",status:"Booking",get:"VN605 HCM → Bangkok · transfer to Asoke",todo:["Terminal 21","Benjakitti Park","Asoke / Sukhumvit","Siam shopping day","Local food + cafés"],eat:["Add Asoke / Sukhumvit food saves here"],note:"Use this stay for the Asoke/Sukhumvit experience."},
+bkk2:{f:"🇹🇭",t:"Bangkok · Part II",date:"24–29 Dec · 5 nights",stay:"Pullman Bangkok Hotel G",status:"Booked",get:"Shama → Pullman Hotel G",todo:["Grand Palace + Wat Phra Kaew","Wat Arun + Chao Phraya boat","SEA LIFE + Siam","ICONSIAM","Safari World"],eat:["Executive Lounge afternoon tea + evening canapés","Add Silom / riverside restaurants here"],note:"G Suite with Lounge Access. Add booking number and lounge notes."}
+};
+const grid=document.getElementById('grid');
+grid.innerHTML=Object.entries(d).map(([id,x])=>`<button class="dest" onclick="go('${id}')"><span class="flag">${x.f}</span><b>${x.t}</b><small>${x.date}</small></button>`).join('');
+document.getElementById('pages').innerHTML=Object.entries(d).map(([id,x])=>`<section id="${id}" class="page"><div class="head"><button class="back" onclick="go('home')">←</button><div><h2>${x.f} ${x.t}</h2><p>${x.date}</p></div></div><div class="wrap">
+<div class="card"><div class="label">Stay <span class="status">${x.status}</span></div><div class="big">${x.stay}</div><div class="actions"><button class="btn primary">📍 Directions</button><button class="btn">🎫 Booking</button></div></div>
+<div class="card"><div class="label">Getting there</div><div class="big" style="font-size:16px">${x.get}</div></div>
+<div class="card"><div class="label">Things to do</div><ul class="list">${x.todo.map(v=>`<li>${v}</li>`).join('')}</ul></div>
+<div class="card"><div class="label">Eat</div><ul class="list">${x.eat.map(v=>`<li>${v}</li>`).join('')}</ul><button class="btn">＋ Add place</button></div>
+<div class="card"><div class="label">Map & quick links</div><div class="actions"><button class="btn">Google Maps</button><button class="btn">Grab</button></div></div>
+<div class="note">${x.note}</div></div></section>`).join('');
+function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');scrollTo(0,0)}
+</script></body></html>
