@@ -21,7 +21,7 @@
 .attractions{display:grid;gap:14px}.attraction-card{background:#fff;border:1px solid #e8edf2;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);position:relative}.photo{height:180px;background:linear-gradient(135deg,#d7e4ef,#a8bfd3)}.photo img{width:100%;height:100%;object-fit:cover;display:block}.photo-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:7px;background:linear-gradient(135deg,#dce9f2,#afc6d8);color:#496277}.photo-placeholder .cam{font-size:28px}.photo-placeholder span{font-size:11px;font-weight:800}.rank{position:absolute;left:12px;top:12px;width:34px;height:34px;border-radius:12px;display:grid;place-items:center;background:#0b1320dd;color:#fff;font-size:12px;font-weight:900}.attraction-body{padding:15px 16px 16px}.attraction-title{font-size:17px;font-weight:900}.meta{display:grid;gap:8px;margin-top:11px}.meta-row{display:grid;grid-template-columns:74px 1fr;gap:9px;font-size:11px;line-height:1.45}.meta-row b{color:#7a8595;text-transform:uppercase;letter-spacing:.07em;font-size:9px}.meta-row span{color:#4c5868}
 .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);background:#fff;color:#344054;border-radius:12px;padding:9px 11px;font-size:11px;font-weight:800}.btn.primary{background:var(--navy);border-color:var(--navy);color:#fff}.btn.disabled{opacity:.45;pointer-events:none}
 .hotel-card{padding:0;overflow:hidden}.hotel-body{padding:16px}.hotel-name{font-size:20px;font-weight:900}.hotel-address{font-size:12px;color:var(--muted);line-height:1.5;margin-top:7px}.status{display:inline-block;padding:5px 8px;border-radius:999px;background:#e9fbf4;color:#08765c;font-size:10px;font-weight:820;margin-top:10px}
-.transfer-grid{display:grid;gap:10px}.transfer-item{border:1px solid #edf0f4;background:#fbfcfd;border-radius:16px;padding:13px}.transfer-item .transfer-title{font-size:13px;font-weight:850}.transfer-item .transfer-note{font-size:11px;color:var(--muted);line-height:1.5;margin-top:5px}
+.travel-section{display:grid;gap:12px;margin-bottom:14px}.flight-grid{display:grid;gap:10px}.flight-card{border:1px solid #e6ebf1;background:linear-gradient(145deg,#fff,#f8fbfd);border-radius:18px;padding:14px}.flight-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.flight-route{font-size:14px;font-weight:900}.flight-number{font-size:11px;font-weight:850;color:#4d5b6d;background:#eef3f7;border-radius:999px;padding:5px 8px}.flight-times{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;margin-top:13px}.flight-time b{display:block;font-size:20px}.flight-time span{display:block;font-size:10px;color:var(--muted);margin-top:2px}.flight-arrow{color:#8a96a6;font-size:16px}.flight-time:last-child{text-align:right}.travel-advice{margin-top:12px;padding-top:11px;border-top:1px solid #edf1f5;display:grid;gap:6px}.travel-advice div{font-size:11px;color:#4f5c6c;line-height:1.45}.travel-advice b{color:#172033}.transfer-grid{display:grid;gap:10px}.transfer-item{border:1px solid #edf0f4;background:#fbfcfd;border-radius:16px;padding:13px}.transfer-item .transfer-title{font-size:13px;font-weight:850}.transfer-item .transfer-note{font-size:11px;color:var(--muted);line-height:1.5;margin-top:5px}.attraction-desc{font-size:12px;color:#4f5c6c;line-height:1.55;margin-top:7px}
 .restaurant-list{display:grid;gap:10px}.restaurant{border:1px solid #e9edf2;border-radius:18px;padding:14px;background:#fff}.restaurant-name{font-size:15px;font-weight:900}
 .map-card{background:linear-gradient(145deg,#f8fbfd,#eef4f7)}.map-visual{height:140px;border-radius:17px;background:linear-gradient(135deg,#dce7e0,#c9d9e5);display:grid;place-items:center;color:#546579;font-size:38px}.map-copy{font-size:11px;color:var(--muted);line-height:1.5;margin-top:10px}
 .nav{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(940px,100%);display:grid;grid-template-columns:repeat(4,1fr);background:#fffffff2;backdrop-filter:blur(18px);border-top:1px solid var(--line);padding:8px 8px calc(8px + env(safe-area-inset-bottom));z-index:60}.nav button{border:0;background:transparent;color:#7a8595;font-size:10px;font-weight:780}.nav i{display:block;font-style:normal;font-size:20px;margin-bottom:2px}
@@ -154,9 +154,42 @@ tabs.innerHTML+=Object.entries(d).map(([id,x])=>`<button class="tab" data-page="
 const mapLink=q=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q);
 const photoBlock=(name,url)=>url?`<div class="photo"><img src="${url}" alt="${name}" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder\'><div class=\'cam\'>📷</div><span>Photo unavailable</span></div>'"></div>`:`<div class="photo"><div class="photo-placeholder"><div class="cam">📷</div><span>Photo to add</span></div></div>`;
 
+const activityDescriptions={
+"Nong Nooch Tropical Garden":"A huge landscaped garden complex with themed displays, animal areas and dinosaur exhibits — an easy full family day.",
+"Sanctuary of Truth":"A spectacular hand-carved wooden temple by the sea, famous for its intricate architecture and craftsmanship.",
+"Koh Larn":"A small island just off Pattaya with clear water, beaches and a relaxed day-trip feel.",
+"Underwater World Pattaya":"An indoor aquarium with underwater tunnels, marine-life exhibits and feeding shows — useful for a hot or rainy day.",
+"Pattaya Floating Market":"A colourful market built around canals, with Thai food, souvenirs, cultural displays and optional boat rides.",
+"Hoi An Ancient Town":"A UNESCO-listed riverside old town filled with historic buildings, lanterns, shops, cafés and pedestrian streets.",
+"Lantern Boat + Night Market":"An atmospheric evening experience combining a Thu Bon River lantern boat ride with Hoi An’s busy night market.",
+"Cam Thanh Basket Boats":"A fun family activity through coconut-palm waterways in traditional round basket boats.",
+"VinWonders Nam Hoi An":"A large family theme park combining rides, water attractions, wildlife, shows and Vietnamese cultural experiences.",
+"Japanese Covered Bridge":"One of Hoi An’s best-known landmarks — a compact historic bridge that is easy to visit while exploring the Old Town.",
+"Ba Na Hills + Golden Bridge":"A mountain-top entertainment complex reached by cable car, best known for the famous Golden Bridge held by giant stone hands.",
+"My Khe Beach":"Da Nang’s long city beach, ideal for a relaxed swim, sand time with the kids or a slower morning.",
+"Dragon Bridge + Son Tra Night Market":"A lively evening combination with street food and the illuminated Dragon Bridge, including its famous fire-and-water show on selected nights.",
+"Son Tra + Lady Buddha":"A scenic peninsula outing with coastal views, forested roads and the towering Lady Buddha at Linh Ung Pagoda.",
+"Marble Mountains":"A group of limestone hills with caves, pagodas and viewpoints — more of an active sightseeing stop than a stroller-friendly one.",
+"District 1 Landmarks":"A simple way to see central Saigon’s major sights, including historic colonial buildings, Nguyen Hue and key city landmarks.",
+"Saigon Zoo & Botanical Gardens":"A spacious central-city zoo and garden that gives the kids room to walk around while breaking up busier sightseeing days.",
+"Ben Thanh Market":"One of Ho Chi Minh City’s best-known markets for snacks, souvenirs, clothing and a quick taste of local market life.",
+"Landmark 81 + Central Park":"A modern riverside area with Vietnam’s tallest skyscraper, shopping, restaurants and open park space for the family.",
+"Saigon River":"A chance to see the city from the water, particularly attractive around sunset and evening when the skyline lights up.",
+"Terminal 21":"A themed shopping centre near Asoke with food, shopping and easy air-conditioned downtime after travel.",
+"Benjakitti Park":"A large, modern and stroller-friendly park with lakes, skyline views and plenty of space for the kids.",
+"Sukhumvit / Asoke":"A busy central Bangkok neighbourhood packed with shopping, restaurants, cafés and easy BTS/MRT connections.",
+"Siam Shopping District":"Bangkok’s major shopping hub, with Siam Paragon, CentralWorld and plenty of indoor family-friendly attractions nearby.",
+"Erawan Shrine":"A famous Hindu shrine in central Bangkok that is quick to visit and easy to combine with the Siam shopping area.",
+"Grand Palace + Wat Phra Kaew":"Bangkok’s most iconic royal complex, home to ornate palace buildings and the sacred Emerald Buddha.",
+"Wat Arun + Chao Phraya Boat":"A classic Bangkok outing combining the riverside Temple of Dawn with an easy boat trip on the Chao Phraya.",
+"SEA LIFE Bangkok Ocean World + Siam":"A large indoor aquarium beneath Siam Paragon — a very easy family activity and particularly good in hot or wet weather.",
+"ICONSIAM":"A huge riverside shopping and dining complex with Thai food, luxury stores and excellent evening river views.",
+"Safari World Bangkok":"A full-day wildlife attraction with a drive-through safari area, animal exhibits and scheduled shows."
+};
+
 const attractionCard=(a,i,id)=>`<article class="attraction-card">
 ${photoBlock(a[0],photos[id].attractions[i])}<div class="rank">${i+1}</div>
-<div class="attraction-body"><div class="attraction-title">${a[0]}</div>
+<div class="attraction-body"><div class="attraction-title">${a[0]}</div><div class="attraction-desc">${activityDescriptions[a[0]]||''}</div>
 <div class="meta"><div class="meta-row"><b>Address</b><span>${a[1]}</span></div><div class="meta-row"><b>Notes</b><span>${a[2]}</span></div></div>
 <div class="actions"><a class="btn primary" href="${mapLink(a[0]+' '+a[1])}" target="_blank">📍 Directions</a>${a[3]?`<a class="btn" href="${a[3]}" target="_blank">↗ Official website</a>`:`<button class="btn disabled">↗ Website to add</button>`}</div>
 </div></article>`;
@@ -165,11 +198,30 @@ const restaurantCard=r=>`<article class="restaurant"><div class="restaurant-name
 <div class="meta"><div class="meta-row"><b>Address</b><span>${r[1]}</span></div><div class="meta-row"><b>Try</b><span>${r[2]}</span></div><div class="meta-row"><b>Price</b><span>${r[3]}</span></div><div class="meta-row"><b>Notes</b><span>${r[4]}</span></div></div>
 <div class="actions"><a class="btn" href="${mapLink(r[0]+' '+r[1])}" target="_blank">📍 Map</a></div></article>`;
 
+const travelByStop={
+pattaya:[
+{route:'Melbourne → Bangkok',flight:'TG462',date:'2 Dec 2026',dep:'00:30',arr:'05:40',depAirport:'MEL · Terminal 2',arrAirport:'BKK · Suvarnabhumi',checkin:'Arrive MEL Terminal 2 around 9:30 PM on 1 Dec (about 3 hours before departure).',leave:'Plan to leave home early enough to be at MEL by 9:30 PM on 1 Dec.',note:'Nonstop Thai Airways flight · approx. 9h 10m.'},
+{route:'Bangkok → Da Nang',flight:'VN698',date:'7 Dec 2026',dep:'12:20',arr:'14:00',depAirport:'BKK · Terminal 2',arrAirport:'DAD · Da Nang',checkin:'Aim to be at BKK around 9:20 AM (about 3 hours before this international flight).',leave:'Leave Grande Centre Point Voyage Pattaya around 6:45–7:00 AM.',note:'Allows time for the Pattaya → BKK drive plus traffic buffer.'}
+],
+hoian:[{route:'Bangkok → Da Nang',flight:'VN698',date:'7 Dec 2026',dep:'12:20',arr:'14:00',depAirport:'BKK · Terminal 2',arrAirport:'DAD · Da Nang',checkin:'Aim to be at BKK around 9:20 AM.',leave:'Leave Grande Centre Point Voyage Pattaya around 6:45–7:00 AM.',note:'After landing at DAD, continue by transfer to Hoi An.'}],
+danang:[{route:'Da Nang → Ho Chi Minh City',flight:'VN6035',date:'16 Dec 2026',dep:'12:10',arr:'13:45',depAirport:'DAD · Da Nang',arrAirport:'SGN · Ho Chi Minh City',checkin:'Aim to be at DAD around 10:10 AM (about 2 hours before this domestic flight).',leave:'Leave Thè HEM around 9:15 AM.',note:'Domestic Vietnam flight.'}],
+hcm:[
+{route:'Da Nang → Ho Chi Minh City',flight:'VN6035',date:'16 Dec 2026',dep:'12:10',arr:'13:45',depAirport:'DAD · Da Nang',arrAirport:'SGN · Ho Chi Minh City',checkin:'Aim to be at DAD around 10:10 AM.',leave:'Leave Thè HEM around 9:15 AM.',note:'Arrival flight into Ho Chi Minh City.'},
+{route:'Ho Chi Minh City → Bangkok',flight:'VN605',date:'21 Dec 2026',dep:'11:35',arr:'13:10',depAirport:'SGN · Ho Chi Minh City',arrAirport:'BKK · Suvarnabhumi',checkin:'Aim to be at SGN around 8:35 AM (about 3 hours before this international flight).',leave:'Leave Celine Living – Central around 7:40–7:45 AM.',note:'Allows a morning traffic buffer.'}
+],
+bkk1:[{route:'Ho Chi Minh City → Bangkok',flight:'VN605',date:'21 Dec 2026',dep:'11:35',arr:'13:10',depAirport:'SGN · Ho Chi Minh City',arrAirport:'BKK · Suvarnabhumi',checkin:'Aim to be at SGN around 8:35 AM.',leave:'Leave Celine Living – Central around 7:40–7:45 AM.',note:'After landing at BKK, continue to Shama Lakeview Asoke.'}],
+bkk2:[{route:'Bangkok → Melbourne',flight:'TG465',date:'29 Dec 2026',dep:'18:20',arr:'07:20',depAirport:'BKK · Suvarnabhumi',arrAirport:'MEL · Terminal 2',arrDate:'30 Dec 2026',checkin:'Aim to be at BKK around 3:20 PM (about 3 hours before departure).',leave:'Leave Pullman Bangkok Hotel G around 1:45 PM.',note:'Nonstop Thai Airways flight · approx. 9h.'}]
+};
+function flightCard(f){return '<div class="flight-card"><div class="flight-top"><div><div class="label">✈️ Flight</div><div class="flight-route">'+f.route+'</div></div><div class="flight-number">'+f.flight+'</div></div><div class="flight-times"><div class="flight-time"><b>'+f.dep+'</b><span>'+f.depAirport+'<br>'+f.date+'</span></div><div class="flight-arrow">→</div><div class="flight-time"><b>'+f.arr+'</b><span>'+f.arrAirport+'<br>'+(f.arrDate||f.date)+'</span></div></div><div class="travel-advice"><div><b>Recommended check-in / airport arrival:</b> '+f.checkin+'</div><div><b>Recommended leave time:</b> '+f.leave+'</div>'+(f.note?'<div><b>Note:</b> '+f.note+'</div>':'')+'</div></div>';}
+function travelCards(id,x){var flights=(travelByStop[id]||[]).map(flightCard).join('');var transfers=x.transfers.map(function(v){return '<div class="transfer-item"><div class="transfer-title">🚐 '+v[0]+'</div><div class="transfer-note">'+v[1]+'</div></div>';}).join('');return '<div class="travel-section"><div class="flight-grid">'+flights+'</div><div class="transfer-grid">'+transfers+'</div></div>';}
+
 document.getElementById('pages').innerHTML=Object.entries(d).map(([id,x])=>`
 <section id="${id}" class="page">
 <div class="destination-hero ${x.theme}"><div class="city-flag">${x.f}</div><h1>${x.t}</h1><p>${x.date}</p></div>
 <div class="wrap">
 <div class="section-head first"><h2>Trip essentials</h2><span>Most important info</span></div>
+<div class="section-head"><h2>✈️ Travel Section</h2><span>Flights & transfers</span></div>
+${travelCards(id,x)}
 <div class="primary-grid">
   <div class="card hotel-card">${photoBlock(x.hotel[0],photos[id].hotel)}<div class="hotel-body"><div class="label">🏨 Where we're staying</div><div class="hotel-name">${x.hotel[0]}</div><div class="hotel-address">📍 ${x.hotel[1]}</div><div class="status">${x.hotel[2]}</div><div class="actions"><a class="btn primary" href="${mapLink(x.hotel[0]+' '+x.hotel[1])}" target="_blank">📍 Directions</a><button class="btn disabled">🎫 Booking documents</button></div></div></div>
   <div class="card todo-card"><div class="todo-head"><div><div class="label">✅ To-do list</div><div class="small">Before & during this stop</div></div><div class="counter">${x.tasks.length} items</div></div>${x.tasks.map((v,i)=>`<label class="check-row"><input type="checkbox" data-key="${id}-task-${i}"><span class="check-copy"><b>${v[0]}</b><span>${v[1]}</span></span></label>`).join('')}</div>
@@ -177,9 +229,6 @@ document.getElementById('pages').innerHTML=Object.entries(d).map(([id,x])=>`
 
 <div class="section-head"><h2>✨ Top 5 things to do</h2><span>Family highlights</span></div>
 <div class="attractions">${x.attractions.map((a,i)=>attractionCard(a,i,id)).join('')}</div>
-
-<div class="section-head"><h2>🚐 Transfers</h2><span>Flights & ground transport</span></div>
-<div class="transfer-grid">${x.transfers.map(v=>`<div class="transfer-item"><div class="transfer-title">${v[0]}</div><div class="transfer-note">${v[1]}</div></div>`).join('')}</div>
 
 <div class="section-head"><h2>🍜 Places to eat</h2><span>Saved food spots</span></div>
 <div class="restaurant-list">${x.restaurants.map(restaurantCard).join('')}</div>
