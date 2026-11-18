@@ -154,8 +154,8 @@ tabs.innerHTML+=Object.entries(d).map(([id,x])=>`<button class="tab" data-page="
 const mapLink=q=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q);
 const photoBlock=(name,url)=>url?`<div class="photo"><img src="${url}" alt="${name}" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder\'><div class=\'cam\'>📷</div><span>Photo unavailable</span></div>'"></div>`:`<div class="photo"><div class="photo-placeholder"><div class="cam">📷</div><span>Photo to add</span></div></div>`;
 
-const attractionCard=(a,i)=>`<article class="attraction-card">
-${photoBlock(a[0])}<div class="rank">${i+1}</div>
+const attractionCard=(a,i,id)=>`<article class="attraction-card">
+${photoBlock(a[0],photos[id].attractions[i])}<div class="rank">${i+1}</div>
 <div class="attraction-body"><div class="attraction-title">${a[0]}</div>
 <div class="meta"><div class="meta-row"><b>Address</b><span>${a[1]}</span></div><div class="meta-row"><b>Notes</b><span>${a[2]}</span></div></div>
 <div class="actions"><a class="btn primary" href="${mapLink(a[0]+' '+a[1])}" target="_blank">📍 Directions</a>${a[3]?`<a class="btn" href="${a[3]}" target="_blank">↗ Official website</a>`:`<button class="btn disabled">↗ Website to add</button>`}</div>
