@@ -22,10 +22,10 @@
 .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);background:#fff;color:#344054;border-radius:12px;padding:9px 11px;font-size:11px;font-weight:800}.btn.primary{background:var(--navy);border-color:var(--navy);color:#fff}.btn.disabled{opacity:.45;pointer-events:none}
 .hotel-card{padding:0;overflow:hidden}.hotel-body{padding:16px}.hotel-name{font-size:20px;font-weight:900}.hotel-address{font-size:12px;color:var(--muted);line-height:1.5;margin-top:7px}.status{display:inline-block;padding:5px 8px;border-radius:999px;background:#e9fbf4;color:#08765c;font-size:10px;font-weight:820;margin-top:10px}
 .travel-section{display:grid;gap:12px;margin-bottom:14px}.flight-grid{display:grid;gap:10px}.flight-card{border:1px solid #e6ebf1;background:linear-gradient(145deg,#fff,#f8fbfd);border-radius:18px;padding:14px}.flight-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.flight-route{font-size:14px;font-weight:900}.flight-number{font-size:11px;font-weight:850;color:#4d5b6d;background:#eef3f7;border-radius:999px;padding:5px 8px}.flight-times{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;margin-top:13px}.flight-time b{display:block;font-size:20px}.flight-time span{display:block;font-size:10px;color:var(--muted);margin-top:2px}.flight-arrow{color:#8a96a6;font-size:16px}.flight-time:last-child{text-align:right}.travel-advice{margin-top:12px;padding-top:11px;border-top:1px solid #edf1f5;display:grid;gap:6px}.travel-advice div{font-size:11px;color:#4f5c6c;line-height:1.45}.travel-advice b{color:#172033}.transfer-grid{display:grid;gap:10px}.transfer-item{border:1px solid #edf0f4;background:#fbfcfd;border-radius:16px;padding:13px}.transfer-item .transfer-title{font-size:13px;font-weight:850}.transfer-item .transfer-note{font-size:11px;color:var(--muted);line-height:1.5;margin-top:5px}.attraction-desc{font-size:12px;color:#4f5c6c;line-height:1.55;margin-top:7px}
-.restaurant-list{display:grid;gap:10px}.restaurant{border:1px solid #e9edf2;border-radius:18px;padding:14px;background:#fff}.restaurant-name{font-size:15px;font-weight:900}
+.restaurant-list{display:grid;gap:10px}.restaurant{width:100%;border:1px solid #e9edf2;border-radius:16px;padding:14px;background:#fff;text-align:left;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 6px 18px rgba(16,32,55,.06)}.restaurant:hover{border-color:#cfd7e2}.restaurant-main{min-width:0}.restaurant-name{font-size:15px;font-weight:900;color:var(--ink)}.restaurant-sub{font-size:11px;color:var(--muted);margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.restaurant-arrow{flex:0 0 auto;width:32px;height:32px;border-radius:10px;background:#f1f4f7;display:grid;place-items:center;color:#59677a;font-size:17px}.modal-backdrop{position:fixed;inset:0;background:rgba(7,13,24,.58);display:none;align-items:flex-end;justify-content:center;z-index:100;padding:16px}.modal-backdrop.open{display:flex}.restaurant-modal{width:min(600px,100%);max-height:86vh;overflow:auto;background:#fff;border-radius:24px 24px 18px 18px;box-shadow:0 24px 80px rgba(0,0,0,.28)}.modal-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:19px 19px 12px;border-bottom:1px solid #edf0f4;position:sticky;top:0;background:#fff;z-index:2}.modal-title{font-size:21px;font-weight:900;line-height:1.15}.modal-close{border:0;background:#f1f4f7;width:36px;height:36px;border-radius:12px;font-size:19px;color:#445064}.modal-body{padding:16px 19px 20px}.modal-detail{padding:11px 0;border-bottom:1px solid #edf0f4}.modal-detail:last-of-type{border-bottom:0}.modal-detail b{display:block;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#8290a2;margin-bottom:5px}.modal-detail span{font-size:13px;line-height:1.55;color:#334155}.modal-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
 .map-card{background:linear-gradient(145deg,#f8fbfd,#eef4f7)}.map-frame{width:100%;height:220px;border:0;border-radius:17px;background:#dde7ef}.map-copy{font-size:11px;color:var(--muted);line-height:1.5;margin-top:10px}
 .nav{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(940px,100%);display:grid;grid-template-columns:repeat(4,1fr);background:#fffffff2;backdrop-filter:blur(18px);border-top:1px solid var(--line);padding:8px 8px calc(8px + env(safe-area-inset-bottom));z-index:60}.nav button{border:0;background:transparent;color:#7a8595;font-size:10px;font-weight:780}.nav i{display:block;font-style:normal;font-size:20px;margin-bottom:2px}
-@media(min-width:720px){.home-hero,.destination-hero{margin-left:20px;margin-right:20px}.wrap{padding-left:20px;padding-right:20px}.tabs{justify-content:center}.attractions{grid-template-columns:1fr 1fr}.attraction-card:first-child{grid-column:span 2}.restaurant-list{grid-template-columns:1fr 1fr}.transfer-grid{grid-template-columns:1fr 1fr}}@media(max-width:650px){.primary-grid{grid-template-columns:1fr}.quick-grid{grid-template-columns:repeat(2,1fr)}.topbar{align-items:flex-start}.top-meta{gap:6px}.trip-chip{padding:7px 8px}.mel-clock{min-width:82px;padding:5px 8px}}
+@media(min-width:720px){.home-hero,.destination-hero{margin-left:20px;margin-right:20px}.wrap{padding-left:20px;padding-right:20px}.tabs{justify-content:center}.attractions{grid-template-columns:1fr 1fr}.attraction-card:first-child{grid-column:span 2}.transfer-grid{grid-template-columns:1fr 1fr}}@media(max-width:650px){.primary-grid{grid-template-columns:1fr}.quick-grid{grid-template-columns:repeat(2,1fr)}.topbar{align-items:flex-start}.top-meta{gap:6px}.trip-chip{padding:7px 8px}.mel-clock{min-width:82px;padding:5px 8px}}
 </style>
 </head>
 <body>
@@ -37,6 +37,21 @@
 <div class="wrap"><div class="section-head first"><h2>Quick access</h2><span>Trip essentials</span></div><div class="quick-grid"><a class="quick" href="https://drive.google.com/drive/folders/1Za3pYvOpL45sA5SicPDkp_EKhZbUSnAR" target="_blank"><i>📄</i>Travel docs</a><button class="quick" onclick="coming('Packing checklist')"><i>✅</i>Packing</button><a class="quick" href="https://drive.google.com/drive/folders/149ORu8gXyJIE6vZHDa_pCSKl8ropHU5v" target="_blank"><i>🛡️</i>Insurance</a><a class="quick" href="https://drive.google.com/drive/folders/1JNrutArkrXBMoKM2jwtr5gIOf4QW1iNv" target="_blank"><i>🎫</i>Bookings</a></div></div>
 </section>
 <div id="pages"></div>
+<div class="modal-backdrop" id="restaurantModal" aria-hidden="true" onclick="if(event.target===this)closeRestaurant()">
+  <div class="restaurant-modal" role="dialog" aria-modal="true" aria-labelledby="restaurantModalTitle">
+    <div class="modal-head">
+      <div><div class="label">🍜 Restaurant details</div><div class="modal-title" id="restaurantModalTitle"></div></div>
+      <button class="modal-close" type="button" aria-label="Close restaurant details" onclick="closeRestaurant()">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-detail"><b>Address</b><span id="restaurantAddress"></span></div>
+      <div class="modal-detail"><b>What to try</b><span id="restaurantTry"></span></div>
+      <div class="modal-detail"><b>Price</b><span id="restaurantPrice"></span></div>
+      <div class="modal-detail"><b>Notes</b><span id="restaurantNotes"></span></div>
+      <div class="modal-actions"><a class="btn primary" id="restaurantDirections" target="_blank">📍 Directions</a></div>
+    </div>
+  </div>
+</div>
 <nav class="nav"><button onclick="go('home')"><i>🏠</i>Home</button><button onclick="coming('Day-by-day itinerary')"><i>📅</i>Itinerary</button><button onclick="coming('Packing checklist')"><i>✅</i>Checklist</button><button onclick="coming('Travel tools')"><i>☰</i>More</button></nav>
 </main>
 <script>
@@ -214,9 +229,7 @@ ${photoBlock(a[0],photos[id].attractions[i])}<div class="rank">${i+1}</div>
 <div class="actions"><a class="btn primary" href="${mapLink(a[0]+' '+a[1])}" target="_blank">📍 Directions</a>${a[3]?`<a class="btn" href="${a[3]}" target="_blank">↗ Official website</a>`:`<button class="btn disabled">↗ Website to add</button>`}</div>
 </div></article>`;
 
-const restaurantCard=r=>`<article class="restaurant"><div class="restaurant-name">${r[0]}</div>
-<div class="meta"><div class="meta-row"><b>Address</b><span>${r[1]}</span></div><div class="meta-row"><b>Try</b><span>${r[2]}</span></div><div class="meta-row"><b>Price</b><span>${r[3]}</span></div><div class="meta-row"><b>Notes</b><span>${r[4]}</span></div></div>
-<div class="actions"><a class="btn" href="${mapLink(r[0]+' '+r[1])}" target="_blank">📍 Map</a></div></article>`;
+const restaurantCard=(r,i,id)=>`<button class="restaurant" type="button" onclick="openRestaurant('${id}',${i})"><span class="restaurant-main"><span class="restaurant-name">${r[0]}</span><span class="restaurant-sub">${r[2]} · ${r[3]}</span></span><span class="restaurant-arrow">›</span></button>`;
 
 const travelByStop={
 pattaya:[
@@ -247,12 +260,34 @@ ${sectionBanner('✨','Top 5 Things To Do','Family highlights and must-visit spo
 <div class="attractions">${x.attractions.map((a,i)=>attractionCard(a,i,id)).join('')}</div>
 
 ${sectionBanner('🍜','Restaurants & Food','Saved food spots and recommendations')}
-<div class="restaurant-list">${x.restaurants.map(restaurantCard).join('')}</div>
+<div class="restaurant-list">${x.restaurants.map((r,i)=>restaurantCard(r,i,id)).join('')}</div>
 <div class="actions"><button class="btn" onclick="coming('Add restaurant')">＋ Add restaurant</button></div>
 
 ${sectionBanner('🗺️','Map Overview','Quick orientation for this destination')}
 <div class="card map-card"><iframe class="map-frame" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="${mapEmbed(x.t)}"></iframe><div class="map-copy">Use this map overview to orient yourself, then open the full map for directions or jump straight to the hotel.</div><div class="actions"><a class="btn primary" href="${mapLink(x.t)}" target="_blank">Open ${x.short} in Google Maps</a><a class="btn" href="${mapLink(x.hotel[0]+' '+x.hotel[1])}" target="_blank">Hotel</a></div></div>
 </div></section>`).join('');
+
+function openRestaurant(id,index){
+  const r=d[id]&&d[id].restaurants?d[id].restaurants[index]:null;
+  if(!r)return;
+  document.getElementById('restaurantModalTitle').textContent=r[0]||'Restaurant';
+  document.getElementById('restaurantAddress').textContent=r[1]||'Not added yet';
+  document.getElementById('restaurantTry').textContent=r[2]||'Not added yet';
+  document.getElementById('restaurantPrice').textContent=r[3]||'Not added yet';
+  document.getElementById('restaurantNotes').textContent=r[4]||'Not added yet';
+  document.getElementById('restaurantDirections').href=mapLink((r[0]||'')+' '+(r[1]||''));
+  const modal=document.getElementById('restaurantModal');
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+}
+function closeRestaurant(){
+  const modal=document.getElementById('restaurantModal');
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeRestaurant()});
 
 function updateMelbourneClock(){
   const el=document.getElementById('melTime');
