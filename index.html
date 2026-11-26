@@ -36,26 +36,20 @@
 .calendar-hero{padding:18px;border-radius:22px;align-items:flex-start}
 .calendar-hero h1{font-size:25px}
 .calendar-hero-badge{min-width:88px;padding:10px}
-.calendar-card{padding:9px 7px 10px;border-radius:18px}
-.calendar-head{align-items:flex-start;padding:0 3px}
-.calendar-hint{display:none}
-.calendar-legend{gap:4px;margin-bottom:9px;padding:0 2px}
-.calendar-legend-item{font-size:7px;padding:4px 6px}
-.calendar-weekdays{display:grid;gap:2px;margin-bottom:4px}
+.calendar-card{padding:10px;border-radius:18px}
+.calendar-weekdays,.holiday-calendar{gap:3px}
 .calendar-weekdays span{font-size:7px}
-.holiday-calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:2px}
-.calendar-day{display:block;min-height:72px;padding:0;border-radius:9px;overflow:hidden}
+.calendar-day{min-height:76px;padding:0;border-radius:10px;overflow:hidden}
 .calendar-day.blank{visibility:hidden}
-.calendar-day.outside-trip{min-height:72px}
-.day-select-btn{min-height:72px;padding:6px 4px 5px}
-.day-top{align-items:center}
-.day-num{font-size:13px}
-.day-destination{font-size:0;height:7px;padding:0;border-radius:999px;margin-top:5px;display:block;width:100%}
-.day-events{margin-top:6px}
-.day-event{display:none}
-.day-more{display:none}
-.day-event-count{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:18px;padding:0 5px;border-radius:999px;background:#eef2f6;color:#4e5b6e;font-size:8px;font-weight:900}
-.day-add{position:absolute;right:4px;top:4px;width:22px;height:22px;border-radius:7px;font-size:14px;background:#f1f4f7;border:1px solid #e0e6ec;z-index:2}
+.day-select-btn{min-height:76px;padding:5px}
+.day-num{font-size:11px}
+.day-add{position:absolute;right:5px;top:5px;width:18px;height:18px;border-radius:6px;font-size:13px;background:#eef2f6;border:0;z-index:2}
+.day-destination{font-size:6px;padding:3px 4px;margin-top:5px}
+.day-event{display:block;font-size:6px;padding:3px 4px}
+.day-events .day-event:nth-child(n+2){display:none}
+.day-more{font-size:7px}
+.day-event-count{display:none}
+.calendar-hint{display:none}
 .calendar-form-row{grid-template-columns:1fr}
 .selected-day-card{border-radius:16px}
 }
