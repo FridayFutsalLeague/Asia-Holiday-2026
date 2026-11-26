@@ -36,29 +36,29 @@
 .calendar-hero{padding:18px;border-radius:22px;align-items:flex-start}
 .calendar-hero h1{font-size:25px}
 .calendar-hero-badge{min-width:88px;padding:10px}
-.calendar-card{padding:12px;border-radius:18px}
-.calendar-head{align-items:flex-start}
+.calendar-card{padding:9px 7px 10px;border-radius:18px}
+.calendar-head{align-items:flex-start;padding:0 3px}
 .calendar-hint{display:none}
-.calendar-weekdays{display:none}
-.holiday-calendar{display:grid;grid-template-columns:1fr;gap:9px}
-.calendar-day,.calendar-day.blank{display:none}
-.calendar-day.in-trip{display:block;min-height:auto;padding:12px 13px;border-radius:14px}
-.calendar-day.selected{outline:2px solid var(--navy);outline-offset:1px}
-.calendar-day .day-top{align-items:center}
-.day-num{font-size:16px}
-.day-num::before{content:'Dec ';font-size:10px;font-weight:800;color:#7b8796}
-.day-add{width:30px;height:30px;border-radius:9px;font-size:18px}
-.day-destination{font-size:10px;padding:5px 7px;margin-top:7px}
-.day-events{margin-top:8px;gap:5px}
-.day-event{font-size:10px;padding:7px 8px;border-radius:8px;white-space:normal}
-.day-events .day-event:nth-child(n+3){display:block}
-.day-more{font-size:9px}
-.calendar-legend{gap:5px}
-.calendar-legend-item{font-size:8px;padding:4px 7px}
+.calendar-legend{gap:4px;margin-bottom:9px;padding:0 2px}
+.calendar-legend-item{font-size:7px;padding:4px 6px}
+.calendar-weekdays{display:grid;gap:2px;margin-bottom:4px}
+.calendar-weekdays span{font-size:7px}
+.holiday-calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:2px}
+.calendar-day{display:block;min-height:72px;padding:0;border-radius:9px;overflow:hidden}
+.calendar-day.blank{visibility:hidden}
+.calendar-day.outside-trip{min-height:72px}
+.day-select-btn{min-height:72px;padding:6px 4px 5px}
+.day-top{align-items:center}
+.day-num{font-size:13px}
+.day-destination{font-size:0;height:7px;padding:0;border-radius:999px;margin-top:5px;display:block;width:100%}
+.day-events{margin-top:6px}
+.day-event{display:none}
+.day-more{display:none}
+.day-event-count{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:18px;padding:0 5px;border-radius:999px;background:#eef2f6;color:#4e5b6e;font-size:8px;font-weight:900}
+.day-add{position:absolute;right:4px;top:4px;width:22px;height:22px;border-radius:7px;font-size:14px;background:#f1f4f7;border:1px solid #e0e6ec;z-index:2}
 .calendar-form-row{grid-template-columns:1fr}
 .selected-day-card{border-radius:16px}
 }
-
 </style>
 </head>
 <body>
@@ -617,7 +617,12 @@ function renderHolidayCalendar(){
     const evs=eventsForDate(key);
     const selected=key===selectedHolidayDate?' selected':'';
     const eventsHtml=evs.slice(0,2).map(e=>'<div class="day-event">'+eventTypeIcon(e.type)+' '+(e.time?e.time+' ':'')+escapeCalendarHtml(e.title)+'</div>').join('')+(evs.length>2?'<div class="day-more">+'+(evs.length-2)+' more</div>':'');
-    cells.push('<button type="button" class="calendar-day '+(inTrip?'in-trip':'outside-trip')+selected+'" '+(inTrip?'onclick="selectHolidayDate(\''+key+'\')"':'disabled')+'><div class="day-top"><span class="day-num">'+day+'</span>'+(inTrip?'<span class="day-add">＋</span>':'')+'</div>'+(dest?'<div class="day-destination cal-'+dest.key+'">'+dest.flag+' '+dest.name+'</div>':'')+'<div class="day-events">'+eventsHtml+'</div></button>');
+    const countHtml=evs.length?'<span class="day-event-count">'+evs.length+' plan'+(evs.length===1?'':'s')+'</span>':'';
+    if(inTrip){
+      cells.push('<div class="calendar-day in-trip'+selected+'"><button type="button" class="day-select-btn" onclick="selectHolidayDate(\''+key+'\')" aria-label="Select '+formatHolidayDate(key)+'"><div class="day-top"><span class="day-num">'+day+'</span></div>'+(dest?'<div class="day-destination cal-'+dest.key+'" title="'+dest.name+'">'+dest.flag+' '+dest.name+'</div>':'')+'<div class="day-events">'+eventsHtml+countHtml+'</div></button><button type="button" class="day-add" aria-label="Add plan for '+formatHolidayDate(key)+'" onclick="event.stopPropagation();openCalendarEventModal(\''+key+'\')">＋</button></div>');
+    }else{
+      cells.push('<div class="calendar-day outside-trip"><div class="day-select-btn"><div class="day-top"><span class="day-num">'+day+'</span></div></div></div>');
+    }
   }
   root.innerHTML=cells.join('');
   const count=document.getElementById('calendarEventCount');
