@@ -79,7 +79,7 @@
       <div class="calendar-hint">Tap a holiday date to plan it</div>
     </div>
     <div class="calendar-legend" id="calendarLegend"></div>
-    <div class="calendar-weekdays"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+    <div class="calendar-weekdays"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
     <div class="holiday-calendar" id="holidayCalendar"></div>
   </div>
 
@@ -601,7 +601,7 @@ function renderHolidayCalendar(){
   const legend=document.getElementById('calendarLegend');
   if(!root||!legend)return;
   legend.innerHTML=holidayCalendarConfig.destinations.map(v=>'<span class="calendar-legend-item"><i class="legend-dot legend-'+v.key+'"></i>'+v.flag+' '+v.name+'</span>').join('');
-  const firstDay=(new Date(Date.UTC(2026,11,1)).getUTCDay()+6)%7;
+  const firstDay=new Date(Date.UTC(2026,11,1)).getUTCDay();
   const cells=[];
   for(let i=0;i<firstDay;i++)cells.push('<div class="calendar-day blank"></div>');
   for(let day=1;day<=31;day++){
