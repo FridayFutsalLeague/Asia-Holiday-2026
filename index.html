@@ -69,12 +69,12 @@
 <div class="modal-backdrop" id="hoiAnRestaurantMapModal" aria-hidden="true" onclick="if(event.target===this)closeHoiAnRestaurantMap()">
   <div class="restaurant-map-modal" role="dialog" aria-modal="true" aria-labelledby="hoiAnRestaurantMapTitle">
     <div class="modal-head">
-      <div><div class="label">🗺️ Hoi An food map</div><div class="modal-title" id="hoiAnRestaurantMapTitle">Hotel + 7 Must Tries</div></div>
+      <div><div class="label">🗺️ Hoi An food map</div><div class="modal-title" id="hoiAnRestaurantMapTitle">Hotel + 8 Must Tries</div></div>
       <button class="modal-close" type="button" aria-label="Close Hoi An restaurant map" onclick="closeHoiAnRestaurantMap()">×</button>
     </div>
     <div class="restaurant-map-wrap">
-      <a href="https://drive.google.com/file/d/1srqluFagbBkmWbla4dvy1zu7gtOYajvl/view" target="_blank" aria-label="Open full Hoi An food map">
-        <img class="food-map-static" src="https://drive.google.com/thumbnail?id=1srqluFagbBkmWbla4dvy1zu7gtOYajvl&sz=w2000" alt="Hoi An Must Try Food Map showing Hotel Royal Hoi An and seven must-try food stops" loading="lazy" referrerpolicy="no-referrer">
+      <a href="https://drive.google.com/file/d/1YGpqGJyr4wRlhHmpCMqnsk5N4ntSgreN/view" target="_blank" aria-label="Open full Hoi An food map">
+        <img class="food-map-static" src="https://drive.google.com/thumbnail?id=1YGpqGJyr4wRlhHmpCMqnsk5N4ntSgreN&sz=w2000" alt="Hoi An Must Try Food Map showing Hotel Royal Hoi An and eight must-try food stops" loading="lazy" referrerpolicy="no-referrer">
       </a>
       <div class="restaurant-map-note">Static trip-planning overview. Tap the image for the full-size copy; use each restaurant popup for exact Google Maps directions.</div>
     </div>
@@ -113,6 +113,7 @@ restaurants:[
 ["Bale Well","45/51 Trần Hưng Đạo, Hội An, Vietnam","Bánh xèo, grilled pork skewers, rice-paper wraps, herbs and dipping sauce","About 100,000–200,000 VND per person","Must Try · Walk in; call ahead for larger groups · Fun DIY family-style meal in an alley beside the old Bá Lễ well."],
 ["Mót Hội An","150 Trần Phú, Hội An, Vietnam","Herbal lemongrass-lime iced tea","Around 25,000 VND","Must Try · Walk in · Famous lotus-petal garnish; quick takeaway stop."],
 ["Hội An Night Market","Nguyễn Hoàng Street, An Hội, Hội An, Vietnam","Grilled corn, rice-paper snacks, skewers and desserts","Varies by stall","Must Try · Walk in · Best as a lantern-lit evening stroll; grilled corn was one of the highlighted snacks."],
+["Cơm Linh","42 Phan Châu Trinh, Minh An, Hội An, Vietnam","Roast duck, duck phở, Hoi An chicken rice and Vietnamese comfort dishes","Around 70,000–200,000 VND","Must Try · Walk in, but arrive early or off-peak. Small Old Town restaurant known for roast duck / duck phở and chicken rice; queues are common at busy times."],
 ["Madam Khanh – The Bánh Mì Queen","115 Trần Cao Vân, Hội An, Vietnam","Bánh mì with pork, pâté, egg and homemade sauce","30,000–40,000 VND","Good Recommendation · Walk in · Popular local bánh mì shop; queues can form."],
 ["White Rose Restaurant","533 Hai Bà Trưng, Hội An, Vietnam","White rose shrimp-and-pork dumplings and crispy fried wontons","About 60,000–100,000 VND","Good Recommendation · Walk in · Traditional specialist for Hội An white rose dumplings."],
 ["Châu Kitchen & Bar","141 Trần Phú, Hội An, Vietnam","Grilled pork rice rolls, beef noodle soup, seafood and Vietnamese-fusion dishes","100,000–500,000 VND per person","Good Recommendation · Book if possible · Heritage-style setting that works well for a family dinner."],
@@ -260,6 +261,7 @@ const restaurantPhotos={
 "Cá Hội An – Croissant Taiyaki":"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2f/bd/0e/6c/our-croissant-taiyaki.jpg?h=500&s=1&w=900",
 "Magicha.zenbar Hoi An":"https://kientrucvadoisong.net/Upload/News/magichazenbar-tron-ven-tu-dieu-khong-hoan-hao.JPG",
 "Uncle Huan Coffee":"https://danang.style/uploads/articles/contents/images/2026/05/img_1779779213_6a15468d26b19.webp",
+"Cơm Linh":"https://mindtrip.ai/cdn-cgi/image/format%3Dwebp%2Cw%3D1200/https%3A/tcdn.mindtrip.ai/images/752904/bwdqe6.png",
 "Phê Men Bakehouse & Eatery":"https://static.wixstatic.com/media/6c786c_4590bc64ee434739a9531b8cdd363648~mv2.jpg/v1/fit/w_940%2Ch_1175%2Cq_90%2Cenc_avif%2Cquality_auto/6c786c_4590bc64ee434739a9531b8cdd363648~mv2.jpg",
 "Bún Chả Hà Nội 1972":"https://cdn.pastaxi-manager.onepas.vn/content/uploads/articles/giangmkt/BLOG/%C4%90%E1%BA%B7c%20s%E1%BA%A3n%20v%C3%B9ng%20mi%E1%BB%81n/bunchahanoi1982/bun-cha-ha-noi-1982-2.jpg",
 "Xôi Gà Number One (Chính Gốc)":"https://cdn.xanhsm.com/2025/01/8a8b5bd4-an-sang-quan-1-thumb.jpg",
@@ -345,15 +347,15 @@ ${photoBlock(a[0],photos[id].attractions[i])}<div class="rank">${i+1}</div>
 const restaurantCard=(r,i,id)=>{const img=restaurantPhotos[r[0]]||'';return `<button class="restaurant" type="button" onclick="openRestaurant('${id}',${i})"><span class="restaurant-thumb">${img?`<img src="${img}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.innerHTML='🍜'">`:'🍜'}</span><span class="restaurant-main"><span class="restaurant-name">${r[0]}</span></span><span class="restaurant-arrow">›</span></button>`;};
 
 const hoiAnRestaurantGroups={
-mustTry:[0,1,2,3,4,5,6],
-good:[7,8,9,10,11,12,13,14],
-time:[15,16,17,18,19,20,21]
+mustTry:[0,1,2,3,4,5,6,7],
+good:[8,9,10,11,12,13,14,15],
+time:[16,17,18,19,20,21,22]
 };
 function restaurantListFromIndexes(x,id,indexes){
   return '<div class="restaurant-list">'+indexes.map(i=>restaurantCard(x.restaurants[i],i,id)).join('')+'</div>';
 }
 function hoiAnRestaurants(x,id){
-  return '<div class="restaurant-group"><div class="restaurant-group-title"><b>⭐ Must Try</b><span>7 places</span></div>'+
+  return '<div class="restaurant-group"><div class="restaurant-group-title"><b>⭐ Must Try</b><span>8 places</span></div>'+
     restaurantListFromIndexes(x,id,hoiAnRestaurantGroups.mustTry)+'</div>'+
     '<details class="restaurant-accordion"><summary><span>👍 Good Recommendations</span><span class="acc-meta">8 places</span><span class="acc-arrow">›</span></summary><div class="restaurant-accordion-body">'+
     restaurantListFromIndexes(x,id,hoiAnRestaurantGroups.good)+'</div></details>'+
