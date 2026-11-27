@@ -237,7 +237,11 @@ restaurants:[
 ["Cơm Nhà Vui","86 Đường 2 Tháng 9, Hải Châu, Da Nang, Vietnam","Claypot braised fish, fried eggplant with fish sauce, sweet-and-sour ribs and family-style rice dishes","₫ · affordable","From your video · Northern Vietnamese home-style cooking. Comfortable option for a family sharing meal."],
 ["Pink Salt","79 Hà Bổng, An Hải, Da Nang 550000, Vietnam","Steak, fresh seafood, oysters, pasta and wine","₫₫₫ · premium","From your video · Stylish steak and seafood restaurant near My Khe Beach. Strong reviews for steaks, seafood and presentation; good option for a nicer family dinner. Open approximately 5 PM–11 PM."],
 ["Mì Quảng Bà Mua","95A Nguyễn Tri Phương, Thanh Khê, Da Nang, Vietnam","Mì Quảng and bánh tráng cuốn thịt heo","Affordable · local","From your video · Long-running Da Nang specialist. The clip highlights both mì Quảng and pork belly rice-paper rolls. Video shows approximately 6 AM–9:30 PM."],
-["Bún Mắm Bà Đông","145 Huỳnh Thúc Kháng, Hải Châu, Da Nang, Vietnam","Bún mắm nêm with pork, herbs, noodles and fermented anchovy sauce","Affordable · local","From your video · Strong local breakfast/lunch-style pick. Video shows approximately 6 AM–7 PM."]
+["Bún Mắm Bà Đông","145 Huỳnh Thúc Kháng, Hải Châu, Da Nang, Vietnam","Bún mắm nêm with pork, herbs, noodles and fermented anchovy sauce","Affordable · local","From your video · Strong local breakfast/lunch-style pick. Video shows approximately 6 AM–7 PM."],
+["Pizza 4P’s Indochina Đà Nẵng","74 Bạch Đằng, Hải Châu, Da Nang, Vietnam","Burrata Margherita, house-made cheese pizza, pasta and desserts","About 200,000–400,000 VND per person","From your video · Popular Japanese-Italian pizza restaurant on the Hàn River. Very family-friendly; booking ahead is smart at peak times. Official hours are roughly 11 AM–10 PM weekdays and 10 AM–10 PM weekends."],
+["Le Comptoir","16 Chế Lan Viên, Ngũ Hành Sơn, Da Nang, Vietnam","French bistro classics, roasted bone marrow, Wagyu tartare and tasting menus","₫₫₫ · premium","From your video · MICHELIN Selected · Intimate French fine dining with a strong wine list. Best for a planned dinner; reservations recommended."],
+["Bún Chả Cá 109","109 Nguyễn Chí Thanh, Hải Châu, Da Nang, Vietnam","Fishcake noodle soup with house-made fried and steamed fishcakes, mackerel and crab balls","₫ · affordable","From your video · MICHELIN Bib Gourmand · More than 50 years old and still family-run. Cash only noted; open roughly 6 AM–10 PM daily."],
+["Bún Riêu Cua 39","39 Lê Hồng Phong, Hải Châu, Da Nang, Vietnam","Tô Riêu Đặc Biệt with crab, three types of fishcake and pork sausage","₫ · affordable","From your video · MICHELIN Selected · Morning-focused local spot known for crab noodle soup. Open roughly 6 AM–2 PM, with an earlier Saturday close."]
 ]},
 hcm:{f:"🇻🇳",t:"Ho Chi Minh City",short:"HCM",theme:"theme-hcm",date:"16–21 Dec · 5 nights",
 tasks:[["Save Celine quiet-room request","Higher floor, away from lifts / construction if possible."],["Prepare second Thailand TDAC","Needed before leaving Vietnam for Bangkok."],["Confirm airport transfer","Decide whether to use Grab or a private transfer to SGN on 21 Dec."]],
@@ -475,11 +479,11 @@ function hcmRestaurants(x,id){
     restaurantListFromIndexes(x,id,hcmRestaurantGroups.time)+'</div></details>';
 }
 
-const daNangRestaurantGroups={mustTry:[0],videos:[1,2,3,4,5,6,7,8,9,10]};
+const daNangRestaurantGroups={mustTry:[0],videos:[1,2,3,4,5,6,7,8,9,10,11,12,13,14]};
 function daNangRestaurants(x,id){
   return '<div class="restaurant-group"><div class="restaurant-group-title"><b>⭐ Must Try</b><span>1 place</span></div>'+
     restaurantListFromIndexes(x,id,daNangRestaurantGroups.mustTry)+'</div>'+
-    '<details class="restaurant-accordion" open><summary><span>📱 From Your Videos</span><span class="acc-meta">10 places</span><span class="acc-arrow">›</span></summary><div class="restaurant-accordion-body">'+
+    '<details class="restaurant-accordion" open><summary><span>📱 From Your Videos</span><span class="acc-meta">14 places</span><span class="acc-arrow">›</span></summary><div class="restaurant-accordion-body">'+
     restaurantListFromIndexes(x,id,daNangRestaurantGroups.videos)+'</div></details>';
 }
 
