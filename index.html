@@ -234,7 +234,8 @@ restaurants:[
 ["Phở Thìn Đà Nẵng","60 Pasteur, Hải Châu, Da Nang, Vietnam","Seared beef phở / phở tái lăn and beef-tripe phở","Around 60,000–90,000 VND per bowl","From your video · Hanoi-style phở. Usually open morning/lunch, then reopens for dinner."],
 ["Bánh Xèo Bà Dưỡng","K280/23 Hoàng Diệu, Hải Châu, Da Nang, Vietnam","Crispy bánh xèo, nem lụi and grilled pork with peanut dipping sauce","About 40,000–100,000 VND per person","From your video · MICHELIN Guide-listed local institution in a narrow alley. Cash only noted; lunch and dinner are busiest."],
 ["Bún Chả Quyên's House","14 Lý Văn Tố, An Hải, Da Nang, Vietnam","Hanoi bún chả, grilled pork patties and fried spring rolls","About 25,000–45,000 VND","From your video · Casual northern Vietnamese spot; good-value option for breakfast, lunch or dinner."],
-["Cơm Nhà Vui","86 Đường 2 Tháng 9, Hải Châu, Da Nang, Vietnam","Claypot braised fish, fried eggplant with fish sauce, sweet-and-sour ribs and family-style rice dishes","₫ · affordable","From your video · Northern Vietnamese home-style cooking. Comfortable option for a family sharing meal."]
+["Cơm Nhà Vui","86 Đường 2 Tháng 9, Hải Châu, Da Nang, Vietnam","Claypot braised fish, fried eggplant with fish sauce, sweet-and-sour ribs and family-style rice dishes","₫ · affordable","From your video · Northern Vietnamese home-style cooking. Comfortable option for a family sharing meal."],
+["Pink Salt","79 Hà Bổng, An Hải, Da Nang 550000, Vietnam","Steak, fresh seafood, oysters, pasta and wine","₫₫₫ · premium","From your video · Stylish steak and seafood restaurant near My Khe Beach. Strong reviews for steaks, seafood and presentation; good option for a nicer family dinner. Open approximately 5 PM–11 PM."]
 ]},
 hcm:{f:"🇻🇳",t:"Ho Chi Minh City",short:"HCM",theme:"theme-hcm",date:"16–21 Dec · 5 nights",
 tasks:[["Save Celine quiet-room request","Higher floor, away from lifts / construction if possible."],["Prepare second Thailand TDAC","Needed before leaving Vietnam for Bangkok."],["Confirm airport transfer","Decide whether to use Grab or a private transfer to SGN on 21 Dec."]],
@@ -455,7 +456,7 @@ function hoiAnRestaurants(x,id){
     restaurantListFromIndexes(x,id,hoiAnRestaurantGroups.mustTry)+'</div>'+
     '<details class="restaurant-accordion"><summary><span>👍 Good Recommendations</span><span class="acc-meta">8 places</span><span class="acc-arrow">›</span></summary><div class="restaurant-accordion-body">'+
     restaurantListFromIndexes(x,id,hoiAnRestaurantGroups.good)+'</div></details>'+
-    '<details class="restaurant-accordion"><summary><span>🕒 If You Have Time</span><span class="acc-meta">7 places</span><span class="acc-arrow">›</span></summary><div class="restaurant-accordion-body">'+
+    '<details class="restaurant-accordion"><summary><span>🕒 If You Have Time</span><span class="acc-meta">8 places</span><span class="acc-arrow">›</span></summary><div class="restaurant-accordion-body">'+
     restaurantListFromIndexes(x,id,hoiAnRestaurantGroups.time)+'</div></details>';
 }
 const hcmRestaurantGroups={
@@ -472,7 +473,7 @@ function hcmRestaurants(x,id){
     restaurantListFromIndexes(x,id,hcmRestaurantGroups.time)+'</div></details>';
 }
 
-const daNangRestaurantGroups={mustTry:[0],videos:[1,2,3,4,5,6,7]};
+const daNangRestaurantGroups={mustTry:[0],videos:[1,2,3,4,5,6,7,8]};
 function daNangRestaurants(x,id){
   return '<div class="restaurant-group"><div class="restaurant-group-title"><b>⭐ Must Try</b><span>1 place</span></div>'+
     restaurantListFromIndexes(x,id,daNangRestaurantGroups.mustTry)+'</div>'+
