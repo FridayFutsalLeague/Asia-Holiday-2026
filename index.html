@@ -165,6 +165,20 @@
       <div class="restaurant-map-note">Static trip-planning overview. Tap the image for the full-size copy; use each restaurant popup for exact Google Maps directions.</div>
     </div>
   </div>
+<div class="modal-backdrop" id="daNangRestaurantMapModal" aria-hidden="true" onclick="if(event.target===this)closeDaNangRestaurantMap()">
+  <div class="restaurant-map-modal" role="dialog" aria-modal="true" aria-labelledby="daNangRestaurantMapTitle">
+    <div class="modal-head">
+      <div><div class="label">🗺️ Da Nang food map</div><div class="modal-title" id="daNangRestaurantMapTitle">Hotel + 7 Must Tries</div></div>
+      <button class="modal-close" type="button" aria-label="Close Da Nang restaurant map" onclick="closeDaNangRestaurantMap()">×</button>
+    </div>
+    <div class="restaurant-map-wrap">
+      <a href="https://drive.google.com/file/d/1074GVAHJ63Sh0oLd-TqKAQ2-uYkJB9AB/view" target="_blank" aria-label="Open full Da Nang food map">
+        <img class="food-map-static" src="https://drive.google.com/thumbnail?id=1074GVAHJ63Sh0oLd-TqKAQ2-uYkJB9AB&sz=w2000" alt="Da Nang Must Try Food Map showing Thè HEM Hotel and Apartment and seven must-try food stops" loading="lazy" referrerpolicy="no-referrer">
+      </a>
+      <div class="restaurant-map-note">Static trip-planning overview of your 7 Must Tries. Tap the image for the full-size copy; use each restaurant popup for exact Google Maps directions.</div>
+    </div>
+  </div>
+</div>
 </div>
 <nav class="nav"><button onclick="go('home')"><i>🏠</i>Home</button><button onclick="go('home');setTimeout(()=>document.querySelector('.calendar-card')?.scrollIntoView({behavior:'smooth',block:'start'}),250)"><i>📅</i>Itinerary</button><button onclick="coming('Packing checklist')"><i>✅</i>Checklist</button><button onclick="coming('Travel tools')"><i>☰</i>More</button></nav>
 </main>
@@ -538,7 +552,7 @@ ${sectionBanner('✨','Top 5 Things To Do','Family highlights and must-visit spo
 
 ${sectionBanner('🍜','Restaurants & Food','Saved food spots and recommendations')}
 ${id==='hoian'?hoiAnRestaurants(x,id):id==='hcm'?hcmRestaurants(x,id):id==='danang'?daNangRestaurants(x,id):'<div class="restaurant-list">'+x.restaurants.map((r,i)=>restaurantCard(r,i,id)).join('')+'</div>'}
-<div class="actions">${id==='hcm'?'<button class="btn primary" type="button" onclick="openRestaurantMap()">🗺️ View Must Try map</button>':id==='hoian'?'<button class="btn primary" type="button" onclick="openHoiAnRestaurantMap()">🗺️ View Must Try map</button>':''}<button class="btn" onclick="coming('Add restaurant')">＋ Add restaurant</button></div>
+<div class="actions">${id==='hcm'?'<button class="btn primary" type="button" onclick="openRestaurantMap()">🗺️ View Must Try map</button>':id==='hoian'?'<button class="btn primary" type="button" onclick="openHoiAnRestaurantMap()">🗺️ View Must Try map</button>':id==='danang'?'<button class="btn primary" type="button" onclick="openDaNangRestaurantMap()">🗺️ View Must Try map</button>':''}<button class="btn" onclick="coming('Add restaurant')">＋ Add restaurant</button></div>
 
 ${sectionBanner('🗺️','Map Overview','Quick orientation for this destination')}
 <div class="card map-card"><iframe class="map-frame" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="${mapEmbed(x.t)}"></iframe><div class="map-copy">Use this map overview to orient yourself, then open the full map for directions or jump straight to the hotel.</div><div class="actions"><a class="btn primary" href="${mapLink(x.t)}" target="_blank">Open ${x.short} in Google Maps</a><a class="btn" href="${mapLink(x.hotel[0]+' '+x.hotel[1])}" target="_blank">Hotel</a></div></div>
@@ -564,7 +578,7 @@ function closeRestaurant(){
   modal.setAttribute('aria-hidden','true');
   document.body.style.overflow='';
 }
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeCalendarEventModal();closeRestaurant();closeRestaurantMap();closeHoiAnRestaurantMap();}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeCalendarEventModal();closeRestaurant();closeRestaurantMap();closeHoiAnRestaurantMap();closeDaNangRestaurantMap();}});
 
 
 function openRestaurantMap(){
@@ -587,6 +601,18 @@ function openHoiAnRestaurantMap(){
 }
 function closeHoiAnRestaurantMap(){
   const modal=document.getElementById('hoiAnRestaurantMapModal');
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+}
+function openDaNangRestaurantMap(){
+  const modal=document.getElementById('daNangRestaurantMapModal');
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+}
+function closeDaNangRestaurantMap(){
+  const modal=document.getElementById('daNangRestaurantMapModal');
   modal.classList.remove('open');
   modal.setAttribute('aria-hidden','true');
   document.body.style.overflow='';
